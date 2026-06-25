@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.repeating-bg {
+  background-color: #ffffff; /* Fallback background color */
+  background-image: url('../public/res/backgrounds/cubes.png'); /* Path to your image file */
+  background-repeat: repeat;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@font-face {
+  font-family: "Kapakana-Regular";
+  src: url("Kapakana-Regular.ttf");
+}
+
+@font-face {
+  font-family: "BlackOpsOne-Regular";
+  src: url("BlackOpsOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Goldman-Regular";
+  src: url("Goldman-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Goldman-Bold";
+  src: url("Goldman-Bold.ttf");
+}
+
+@font-face {
+  font-family: "MavenPro-Regular";
+  src: url("MavenPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "MavenPro-Medium";
+  src: url("MavenPro-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Norwester";
+  src: url("Norwester.ttf");
+}
+
+@font-face {
+  font-family: "PTSerif-Bold";
+  src: url("PTSerif-Bold.ttf");
+}
+
+@font-face {
+  font-family: "PTSerif";
+  src: url("PTSerif-Regular.ttf");
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 3s forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
