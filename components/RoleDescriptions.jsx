@@ -4,7 +4,7 @@ import Parallax from "/components/Parallax";
 
 export default function RoleDescriptions() {
     return (
-        <main className="repeating-bg">
+        <main className="bg-slate-50 text-slate-900">
             <Head>
                 <title>MUN Eng Society | Role Descriptions</title>
             </Head>
@@ -15,10 +15,8 @@ export default function RoleDescriptions() {
                     <h1 className="font-norwester text-4xl font-bold lg:text-6xl xl:text-7xl">
                         JUNIOR POSITIONS
                     </h1>
-                    <p className="mt-6 max-w-4xl px-8 font-maven text-lg lg:text-2xl">
-                        Explore the different roles within the Engineering Society. Each
-                        position plays an important part in supporting students, teams,
-                        and events throughout the year. Applications open in December/January.
+                    <p className="mt-6 max-w-4xl px-8 font-maven text-lg lg:text-2xl text-slate-100">
+                        Explore the different roles within the Engineering Society. Each position plays an important part in supporting students, teams, and events throughout the year. Applications open in December/January.
                     </p>
                 </div>
             </Parallax>
@@ -26,14 +24,12 @@ export default function RoleDescriptions() {
             {/* Divider */}
             <div
                 id="paralaxdivider"
-                className="h-5 border-t-4 border-black bg-gradient-to-b from-mun-burgundy to-stone-400"
+                className="h-5 border-t-4 border-slate-200 bg-gradient-to-b from-mun-burgundy to-slate-400"
             />
 
             {/* Role Images */}
             <section className="px-5 py-10 lg:px-20">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-
-                    {/* Role 1 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/external.jpg"
@@ -43,8 +39,6 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
-                    {/* Role 2 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/internal.jpg"
@@ -54,8 +48,6 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
-                    {/* Role 3 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/academic.jpg"
@@ -65,8 +57,6 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
-                    {/* Role 4 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/finance.jpg"
@@ -76,8 +66,6 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
-                    {/* Role 5 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/advisory.jpg"
@@ -87,8 +75,6 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
-                    {/* Role 6 */}
                     <div className="flex justify-center">
                         <Image
                             src="/res/role_descriptions/advisory_committee.jpg"
@@ -98,17 +84,14 @@ export default function RoleDescriptions() {
                             className="rounded-xl shadow-lg"
                         />
                     </div>
-
                 </div>
             </section>
 
             {/* Bottom Link */}
             <div className="flex justify-center pb-16">
                 <button
-                    className="rounded-full bg-black px-8 py-4 font-norwester text-xl text-white transition hover:scale-105"
-                    onClick={() =>
-                        window.open("https://munengineeringsociety.ca/links", "_blank")
-                    }
+                    className="rounded-full bg-[#832633] px-8 py-4 font-norwester text-xl text-white transition hover:bg-[#6a2024]"
+                    onClick={() => window.open("https://munengineeringsociety.ca/links", "_blank")}
                 >
                     Important Links
                 </button>

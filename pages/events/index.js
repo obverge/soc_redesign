@@ -1,52 +1,178 @@
-import { NothingHereYet } from "../../components/NothingHereYet";
+import { useState } from "react";
+import Head from "next/head";
 import jsonData from "public/json/events.json";
-import { EventCard } from "../../components/EventCard";
-import Head from 'next/head'
+import EventCalendar from "../../components/EventCalendar";
+import EventDetailModal from "../../components/EventDetailModal";
 
 const data = jsonData;
-const organizer = {
-	"enactus": "/res/team_logos/enactus.png",
-	"edge": "/res/team_logos/eastern_edge.png",
-	"baja": "/res/team_logos/baja.png",
-	"paradigm": "/res/team_logos/paradigm.png",
-	"concrete": "/res/team_logos/concrete.png",
-	"chemecar": "/res/team_logos/chemecar.png",
-	"iceberg": "/res/team_logos/icebergasv.png",
-	"robosub": "/res/team_logos/robosub.png",
-	"phoenix": "/res/team_logos/phoenix.png",
-	"fsae": "/res/team_logos/fsae.png",
-	"force": "/res/team_logos/force_seven.png",
-	"engsoca": "/res/logos/society-a.png",
-	"engsocb": "/res/logos/society-b.png"
-}
+
+const organizerLogos = {
+	enactus: "/res/team_logos/enactus.png",
+	edge: "/res/team_logos/eastern_edge.png",
+	baja: "/res/team_logos/baja.png",
+	paradigm: "/res/team_logos/paradigm.png",
+	concrete: "/res/team_logos/concrete.png",
+	chemecar: "/res/team_logos/chemecar.png",
+	iceberg: "/res/team_logos/icebergasv.png",
+	robosub: "/res/team_logos/robosub.png",
+	phoenix: "/res/team_logos/phoenix.png",
+	fsae: "/res/team_logos/fsae.png",
+	force: "/res/team_logos/force_seven.png",
+	engsoca: "/res/logos/society-a.png",
+	engsocb: "/res/logos/society-b.png",
+};
 
 export default function Events() {
-	return (
-		<main className="repeating-bg flex min-h-screen flex-col">
-						<Head>
-				<title> MUN Eng Society | Events</title>
-			</Head>
-			<section className="flex flex-col pt-5 pb-5 pl-2 pr-2 lg:pb-10 lg:pl-40 lg:pr-40 lg:pt-10 gap-5">
+	const [view, setView] = useState("calendar");
+	const [selectedEvent, setSelectedEvent] = useState(null);
+	const [selectedLogo, setSelectedLogo] = useState(null);
 
-				{Object.entries(data).length === 0 ? (
-    				<EventCard name="No events now." description="Check back soon!" organizer="" age="" date=""/>
-					) : (
-				Object.entries(data).map(([event, event_data]) => {
-					return <EventCard name={event_data.name} organizer={organizer[event_data.organizer]} alt_name={event_data.alt_name} age={event_data.age} date={event_data.date} location={event_data.location} cost={event_data.cost} available={event_data.available} description={event_data.description} image={event_data.image} details={event_data.details} registerLink={event_data.registerLink} contactEmail={event_data.contactEmail} />;				}))}
+	const openEvent = (event, logo) => {
+		setSelectedEvent(event);
+		setSelectedLogo(logo);
+	};
+
+	const closeModal = () => {
+		setSelectedEvent(null);
+		setSelectedLogo(null);
+	};
+
+	return (
+		<>
+			<Head>
+				<title>MUN Eng Society | Events</title>
+			</Head>
+
+			<section className="border-b border-slate-200 bg-white">
+				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+					<p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Events</p>
+					<h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">What's Happening</h1>
+					<p className="mt-4 max-w-2xl text-lg text-slate-600">
+						Socials, tournaments, and society events. Events are tagged with Society A or Society B logos to show who's organizing.
+					</p>
+					<div className="mt-6 flex gap-2">
+						<button
+							onClick={() => setView("calendar")}
+							className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+								view === "calendar" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+							}`}
+						>
+							Calendar
+						</button>
+						<button
+							onClick={() => setView("list")}
+							className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+								view === "list" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+							}`}
+						>
+							List
+						</button>
+					</div>
+				</div>
 			</section>
-		</main>
+
+			<div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+				{data.length === 0 ? (
+					<div className="rounded-2xl border border-slate-200 bg-white p-12 text-center shadow-sm">
+						<p className="text-lg font-semibold text-slate-950">No events right now</p>
+						<p className="mt-2 text-slate-600">Check back soon for upcoming events.</p>
+					</div>
+				) : view === "calendar" ? (
+					<div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+						<EventCalendar events={data} organizerLogos={organizerLogos} onEventClick={openEvent} selectedEvent={selectedEvent} />
+						<EventDetailSidebar event={selectedEvent} organizerLogo={selectedLogo} />
+					</div>
+				) : (
+					<div className="grid gap-4">
+						{data.map((event, i) => (
+							<button
+								key={i}
+								onClick={() => openEvent(event, organizerLogos[event.organizer])}
+								className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+							>
+								{organizerLogos[event.organizer] ? (
+									<img src={organizerLogos[event.organizer]} alt="" className="h-10 w-10 shrink-0 rounded-full object-contain" />
+								) : null}
+								<div className="flex-1">
+									<p className="text-sm font-semibold text-[#832633]">{event.date}</p>
+									<h3 className="mt-0.5 text-lg font-semibold text-slate-950">{event.name}</h3>
+									{event.location ? <p className="mt-1 text-sm text-slate-600">{event.location}</p> : null}
+									{event.description ? <p className="mt-2 line-clamp-2 text-sm text-slate-600">{event.description}</p> : null}
+								</div>
+								<span className="material-icons shrink-0 text-slate-400">chevron_right</span>
+							</button>
+						))}
+					</div>
+				)}
+			</div>
+
+			<EventDetailModal event={view === "list" ? selectedEvent : null} organizerLogo={selectedLogo} onClose={closeModal} />
+		</>
 	);
 }
 
-/* 
-format for json:
-    "Dday": {
-        "name": "Dday",
-        "organizer": "engsoca",
-        "alt_name": "Dday",
-        "age": "19+",
-        "date": "11/11/11",
-        "location": "eng",
-        "cost": "0"
-    }
-*/
+function EventDetailSidebar({ event, organizerLogo }) {
+	if (!event) {
+		return (
+			<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+				<div className="flex h-full flex-col justify-center gap-4">
+					<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Event details</p>
+					<h2 className="text-2xl font-semibold text-slate-950">Select an event from the calendar</h2>
+					<p className="text-slate-600">Click any event date to preview the schedule, location, and registration details here.</p>
+				</div>
+			</div>
+		);
+	}
+
+	return (
+		<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+			<div className="mb-6 flex items-center gap-4">
+				{organizerLogo ? (
+					<img src={organizerLogo} alt="Organizer logo" className="h-12 w-12 rounded-full object-contain" />
+				) : null}
+				<div>
+					<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Event preview</p>
+					<h2 className="text-xl font-semibold text-slate-950">{event.name}</h2>
+				</div>
+			</div>
+
+			<p className="text-sm text-slate-500">
+				{event.date}
+				{event.location ? ` · ${event.location}` : ""}
+			</p>
+			{event.description ? <p className="mt-4 text-slate-700 leading-7">{event.description}</p> : null}
+
+			{Array.isArray(event.details) && event.details.length > 0 ? (
+				<div className="mt-6 space-y-3">
+					<h3 className="text-sm font-semibold text-slate-900">What to know</h3>
+					<ul className="list-disc space-y-2 pl-5 text-slate-700">
+						{event.details.map((item, index) => (
+							<li key={index}>{item}</li>
+						))}
+					</ul>
+				</div>
+			) : null}
+
+			<div className="mt-6 grid gap-3">
+				{event.registerLink ? (
+					<a
+						href={event.registerLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex w-full items-center justify-center rounded-full bg-[#832633] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
+					>
+						Register
+					</a>
+				) : null}
+				{event.contactEmail ? (
+					<a
+						href={`mailto:${event.contactEmail}`}
+						className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+					>
+						Contact
+					</a>
+				) : null}
+			</div>
+		</div>
+	);
+}

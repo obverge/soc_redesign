@@ -52,7 +52,7 @@ export function CapstoneProjects({ data }) {
 
 			<p className="text-sm text-stone-500 mb-4 font-maven">{projects.length} project{projects.length !== 1 ? "s" : ""}</p>
 
-			<div className="flex flex-col gap-4 pb-10 items-center">
+			<div className="grid gap-6 pb-10 w-full md:grid-cols-2">
 				{projects.map((project, i) => (
 					<CapstoneProjectCard key={i} project={project} />
 				))}
@@ -72,6 +72,7 @@ function CapstoneProjectCard({ project }) {
 	const displayPhoto = hasBothPhotos
 		? (showGroupPhoto ? project.group_photo : project.project_photo)
 		: (project.project_photo || project.group_photo);
+	const imageSrc = normalizeImagePath(displayPhoto);
 	const hasLinks = (project.member_links && project.member_links.length > 0) || (project.links && project.links.length > 0);
 
 	useEffect(() => {
@@ -84,14 +85,14 @@ function CapstoneProjectCard({ project }) {
 	return (
 		<>
 			{/* Card — no overflow-hidden so the member link popup isn't clipped */}
-			<div className="bg-white rounded-xl shadow-md border border-stone-200 flex flex-col w-full max-w-3xl">
-				{displayPhoto && (
+			<div className="bg-white rounded-xl shadow-md border border-stone-200 flex flex-col w-full h-full">
+				{imageSrc && (
 					<div
 						className="relative w-full h-48 lg:h-80 overflow-hidden rounded-t-xl cursor-zoom-in group"
 						onClick={() => setLightboxOpen(true)}
 					>
 						<img
-							src={displayPhoto}
+							src={imageSrc}
 							alt={project.name}
 							className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
 						/>
@@ -162,7 +163,7 @@ function CapstoneProjectCard({ project }) {
 				>
 					<div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
 						<img
-							src={displayPhoto}
+							src={imageSrc}
 							alt={project.name}
 							className="max-h-[80vh] w-full object-contain rounded-lg"
 						/>
@@ -190,6 +191,11 @@ function CapstoneProjectCard({ project }) {
 			)}
 		</>
 	);
+}
+
+function normalizeImagePath(path) {
+	if (!path) return "";
+	return path.startsWith("/") ? path : path.replace(/^(\.\.\/)+/, "/");
 }
 
 function MemberLinkRow({ member }) {

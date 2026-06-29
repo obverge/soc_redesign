@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "welcome-to-roar-issue-1",
+    "title": "Welcome to MUN Engineering ROAR",
+    "excerpt": "Introducing the first issue of MUN Engineering ROAR, a student newsletter designed to keep the engineering community informed and engaged.",
+    "date": "March 2026",
+    "author": "The Engineering Society",
+    "category": "Newsletter",
+    "image": "/res/roar/winter 26/Airship_Roar.svg",
+    "content": [
+      "Welcome to the inaugural issue of MUN Engineering ROAR, a student newsletter created to brighten your day while keeping you informed and engaged with the Faculty of Engineering and Applied Science.",
+      "ROAR features faculty updates, student accomplishments, upcoming events, engineering news, and stories from across Memorial University's engineering community.",
+      "This first issue reflects on the opening months of the Winter 2026 semester while looking ahead to the exciting events still to come before the end of the term.",
+      "Students are encouraged to submit suggestions, stories, and information for future issues by reaching out to the Engineering Student Society."
+    ]
+  },
+  {
+    "slug": "faculty-updates-march-2026",
+    "title": "Faculty Updates",
+    "excerpt": "Icebergs, quantum research, memorable classroom moments, and appreciation for the people behind the first issue.",
+    "date": "March 2026",
+    "author": "Faculty of Engineering & Applied Science",
+    "category": "Faculty",
+    "image": "/res/roar/winter 26/Stephen_berg_2.svg",
+    "content": [
+      "Dr. Stephen Bruneau was featured on CBC's The Nature of Things in an episode titled 'The Berg,' exploring the formation of Greenland icebergs and their journey along Newfoundland and Labrador's coastline.",
+      "One memorable classroom quote came during a discussion on the Antoniou Inductor Replacement circuit. When a student asked why so much effort was needed to replace a simple inductor, the professor jokingly replied, 'To make things beautiful — why do you spend an hour in the bathroom every morning?'",
+      "The newsletter also highlights Dr. Octavia Dobre's research in quantum computing for communications and networking. Her work focuses on applying quantum entanglement to future communication systems.",
+      "Special thanks are given to Dr. Masek, Associate Dean of Engineering and Applied Science, who created the illustrations throughout the issue and contributed much of its written content."
+    ]
+  },
+  {
+    "slug": "student-design-team-updates",
+    "title": "Student Team Highlights",
+    "excerpt": "Engineering design teams continue earning recognition through competitions and innovative projects.",
+    "date": "March 2026",
+    "author": "The Engineering Society",
+    "category": "Student Life",
+    "image": "/res/roar/winter 26/Elruby_underwater_scooter.svg",
+    "content": [
+      "Enactus Memorial competed at the Enactus Atlantic Canada Regional Exposition in Halifax, earning a third-place finish in the Canadian Tire Environmental Sustainability Challenge.",
+      "IcebergASV completed another successful RoboBoat competition in Florida, competing against 36 teams from more than ten countries and advancing to the semi-finals.",
+      "The MedTech capstone team won the inaugural Atlantic ACL competition with a wearable knee sleeve that combines EMG sensors and motion tracking to support ACL rehabilitation.",
+      "Another capstone team, supervised by Dr. Elruby, continues work on an underwater scooter project while overcoming challenges related to sourcing motors and batteries."
+    ]
+  },
+  {
+    "slug": "engineering-humour-and-inspiration",
+    "title": "Engineering Inspiration",
+    "excerpt": "A blend of engineering humour and timeless scientific wisdom from the first issue of ROAR.",
+    "date": "March 2026",
+    "author": "The Engineering Society",
+    "category": "Community",
+    "image": "",
+    "content": [
+      "The issue features the famous Archimedes quote, 'Give me a fixed point and I shall move the Earth,' reminding students of the power of engineering principles.",
+      "ROAR also celebrates the lighter side of engineering by sharing memorable quotes from classrooms and highlighting the personalities that make the Faculty unique.",
+      "The newsletter aims to build community by recognizing achievements, celebrating faculty and student successes, and keeping everyone connected through shared experiences.",
+      "Future issues promise additional stories, campus news, engineering updates, and opportunities for students to contribute their own content."
+    ]
+  }
+]

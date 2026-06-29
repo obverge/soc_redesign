@@ -8,22 +8,23 @@ const Parallax = ({ children, image }) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener("scroll", onScroll);
-		return () => {
-			window.removeEventListener("scroll", onScroll);
-		};
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
 	return (
-		<div className="relative h-fit w-full overflow-hidden min-h-fit">
+		<div className="relative w-full overflow-hidden min-h-[55vh]">
 			<div
-				className="absolute h-full w-full bg-cover bg-center"
+				className="absolute inset-0 bg-cover bg-center will-change-transform"
 				style={{
 					backgroundImage: `url(${image})`,
-					transform: `translateY(${scrollPosition * 0.5}px)`,
+					transform: `translateY(${scrollPosition * 0.35}px)`,
 				}}
 			/>
-			<div className="relative h-full w-full bg-black bg-opacity-50">{children}</div>
+			<div className="absolute inset-0 bg-white/70" />
+			<div className="relative z-10 flex min-h-[55vh] items-center justify-center px-5 py-20">
+				{children}
+			</div>
 		</div>
 	);
 };

@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "engineering-innovation-summit-2025",
+    "title": "Engineering Innovation Summit 2025",
+    "excerpt": "A look at the keynote sessions, design challenges, and takeaways from a national engineering leadership event.",
+    "date": "May 2025",
+    "location": "Halifax, NS",
+    "category": "Leadership",
+    "image": "/res/roar/winter 26/Airship_Roar.svg",
+    "images": [
+      "/res/roar/winter 26/Airship_Roar.svg",
+      "/res/roar/winter 26/Stephen_berg_2.svg"
+    ],
+    "content": [
+      "At the Engineering Innovation Summit, our team attended sessions on sustainable design, startup strategy, and student leadership in engineering communities.",
+      "One of the most valuable takeaways was the emphasis on collaboration across disciplines, especially when solving real-world problems under time pressure.",
+      "We also learned how to better communicate research ideas to both technical and non-technical audiences, which helped shape how we present capstone work and outreach initiatives."
+    ]
+  },
+  {
+    "slug": "atlantic-student-engineering-forum",
+    "title": "Atlantic Student Engineering Forum",
+    "excerpt": "Highlights from poster sessions, networking events, and the practical lessons shared by student presenters.",
+    "date": "February 2025",
+    "location": "St. John's, NL",
+    "category": "Student Presentations",
+    "image": "/res/roar/winter 26/Elruby_underwater_scooter.svg",
+    "images": [
+      "/res/roar/winter 26/Elruby_underwater_scooter.svg",
+      "/res/roar/winter 26/Stephen_berg_2.svg"
+    ],
+    "content": [
+      "The forum gave students an opportunity to present their work, receive feedback from peers, and connect with professionals in the Atlantic region.",
+      "Sessions focused on project management, innovation in manufacturing, and emerging tools for engineering education and design.",
+      "The strongest lesson was that a well-explained project story can be just as important as the technical result itself."
+    ]
+  },
+  {
+    "slug": "design-competition-networking-weekend",
+    "title": "Design Competition Networking Weekend",
+    "excerpt": "A weekend of design challenges, mentorship, and lessons on how to prepare for future competitions.",
+    "date": "November 2024",
+    "location": "Moncton, NB",
+    "category": "Competition",
+    "image": "/res/roar/winter 26/Stephen_berg_2.svg",
+    "images": [
+      "/res/roar/winter 26/Stephen_berg_2.svg",
+      "/res/roar/winter 26/Airship_Roar.svg"
+    ],
+    "content": [
+      "This conference experience focused on hands-on competition preparation, including judging expectations, presentation structure, and team coordination.",
+      "Students learned that early preparation, clear division of roles, and mock presentations make a major difference when competing under pressure.",
+      "It also highlighted the value of seeking mentorship from experienced teams and using feedback to improve future submissions."
+    ]
+  }
+]

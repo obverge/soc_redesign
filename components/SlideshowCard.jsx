@@ -4,40 +4,40 @@ import Link from "next/link";
 
 export default function SlideshowComponent(props) {
 	const [slideIndex, setSlideIndex] = useState(0);
-
 	const images = props.images;
 
 	const nextSlide = () => {
-		setSlideIndex((prevSlideIndex) => (prevSlideIndex + 1) % images.length);
+		setSlideIndex((prev) => (prev + 1) % images.length);
 	};
 
-	const prevSlide = () => {
-		setSlideIndex((prevSlideIndex) => (prevSlideIndex - 1 + images.length) % images.length);
-	};
-
-	//automaticially change slides after 10 seconds
 	useEffect(() => {
-		const timeout = setTimeout(() => {
-			const interval = setInterval(() => {
-				setSlideIndex((prevSlideIndex) => (prevSlideIndex + 1) % images.length);
-			}, 10000);
-			// Save the interval id to clear it when the component unmounts
-			return () => clearInterval(interval);
-		}, props.delay); // Delay of X seconds
+		let interval;
+		const timer = setTimeout(() => {
+			interval = setInterval(nextSlide, 10000);
+		}, props.delay);
 
-		// Clear the timeout if the component unmounts within the first 2 seconds
-		return () => clearTimeout(timeout);
-	}, []);
+		return () => {
+			clearTimeout(timer);
+			if (interval) clearInterval(interval);
+		};
+	}, [images.length, props.delay]);
 
 	return (
-		<div className="flex w-full sm:w-96 flex-col items-center space-y-4 rounded-2xl border-4 border-black bg-stone-400 p-6 shadow">
-			<h2 className="font-norwester text-4xl font-bold text-white">{props.title}</h2>
-			<button onClick={nextSlide} className="w-full rounded-2xl border-4 border-white">
-				<motion.img src={images[slideIndex]} key={slideIndex} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="h-60 w-full rounded-xl object-cover" />
+		<div className="flex w-full max-w-xl flex-col items-center gap-5 rounded-[32px] border border-slate-200 bg-white p-6 shadow-lg">
+			<h2 className="text-2xl font-semibold tracking-tight text-slate-900">{props.title}</h2>
+			<button onClick={nextSlide} className="w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
+				<motion.img
+					src={images[slideIndex]}
+					key={slideIndex}
+					initial={{ opacity: 0, scale: 0.97 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.5 }}
+					className="h-60 w-full object-cover"
+				/>
 			</button>
-			<p className="text-center text-black">{props.description}</p>
-			<Link href={props.href}>
-				<p className="rounded-md bg-mun-burgundy px-4 py-2 font-norwester text-white">Navigate to Page</p>
+			<p className="text-center text-sm text-slate-600">{props.description}</p>
+			<Link href={props.href} className="inline-flex rounded-full bg-[#832633] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
+				Explore
 			</Link>
 		</div>
 	);

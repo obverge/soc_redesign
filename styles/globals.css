@@ -3,86 +3,116 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground: #0f172a;
+  --text-muted: #475569;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-soft: #f1f5f9;
+  --border: rgba(15, 23, 42, 0.08);
+  --accent: #832633;
+  --accent-soft: #f3d5b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-.repeating-bg {
-  background-color: #ffffff; /* Fallback background color */
-  background-image: url('../public/res/backgrounds/cubes.png'); /* Path to your image file */
-  background-repeat: repeat;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-@font-face {
-  font-family: "Kapakana-Regular";
-  src: url("Kapakana-Regular.ttf");
+.repeating-bg {
+  background-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%), radial-gradient(circle at 80% 15%, rgba(234, 171, 0, 0.12), transparent 22%), linear-gradient(180deg, rgba(248, 250, 252, 0.98), rgba(226, 232, 240, 0.98));
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@font-face {
-  font-family: "BlackOpsOne-Regular";
-  src: url("BlackOpsOne-Regular.ttf");
+.modern-ui {
+  background: var(--background);
+  color: var(--foreground);
 }
 
-@font-face {
-  font-family: "Goldman-Regular";
-  src: url("Goldman-Regular.ttf");
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(16px);
 }
 
-@font-face {
-  font-family: "Goldman-Bold";
-  src: url("Goldman-Bold.ttf");
-}
-
-@font-face {
-  font-family: "MavenPro-Regular";
-  src: url("MavenPro-Regular.ttf");
-}
-
-@font-face {
-  font-family: "MavenPro-Medium";
-  src: url("MavenPro-Medium.ttf");
-}
-
-@font-face {
-  font-family: "Norwester";
-  src: url("Norwester.ttf");
-}
-
-@font-face {
-  font-family: "PTSerif-Bold";
-  src: url("PTSerif-Bold.ttf");
-}
-
-@font-face {
-  font-family: "PTSerif";
-  src: url("PTSerif-Regular.ttf");
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
 }
 
 .fade-in {
   opacity: 0;
-  animation: fadeInAnimation 3s forwards;
+  animation: fadeInAnimation 1.2s ease forwards;
 }
 
 @keyframes fadeInAnimation {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.prose-section {
+  color: #475569;
+  line-height: 1.75;
+}
+
+.prose-section h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.prose-section p {
+  margin-bottom: 1rem;
+}
+
+.prose-section ul {
+  margin-bottom: 1rem;
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.prose-section ul li {
+  margin-bottom: 0.25rem;
+}
+
+.prose-section a:not(.btn-primary) {
+  color: #832633;
+  text-decoration: underline;
+}
+
+.prose-section a:not(.btn-primary):hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background-color: #832633;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.btn-primary:hover {
+  background-color: #6a2024;
 }

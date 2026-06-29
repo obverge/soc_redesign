@@ -10,6 +10,9 @@ module.exports = {
       spacing: {
         '1/7': '14.2857143%',
       },
+      boxShadow: {
+        soft: '0 24px 80px rgba(15, 23, 42, 0.22)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -18,22 +21,16 @@ module.exports = {
       colors: {
         'mun-burgundy': '#832633',
         'mun-grey': '#63666A',
-        'mun-gold': "#EAAB00",
-        'charity-ball-gold': "#d9b04c",
-        'charity-ball-dark-blue': "#00146e",
-        'charity-ball-light-blue': "#6796ff"
-      },
-      fontFamily:{
-				ops: ['BlackOpsOne-Regular', 'opentype'],
-        gold: ['Goldman-Regular', 'opentype'],
-        gold_bold: ['Goldman-Bold', 'opentype'],
-        maven: ['MavenPro-Regular', 'opentype'],
-        maven_medium: ['MavenPro-Medium', 'opentype'],
-        maven_bold: ['MavenPro-Bold', 'opentype'],
-        kapakana: ['Kapakana-Regular', 'opentype'],
-        norwester: ['Norwester', 'opentype'],
-        ptserif: ['PTSerif', 'opentype'],
-        ptserif_bold: ['PTSerif-Bold', 'opentype']
+        'mun-gold': '#EAAB00',
+        'charity-ball-gold': '#d9b04c',
+        'charity-ball-dark-blue': '#00146e',
+        'charity-ball-light-blue': '#6796ff',
+        surface: '#0f172a',
+        'surface-soft': '#111827',
+        'surface-strong': '#1f2937',
+        'text-primary': '#e2e8f0',
+        'text-secondary': '#94a3b8',
+        overlay: 'rgba(15,23,42,0.72)',
       }
     },
   },

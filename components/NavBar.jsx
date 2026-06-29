@@ -1,145 +1,105 @@
 /* ./components/Navbar.jsx */
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+
+const navItems = [
+	{ href: "/aboutus", label: "About", match: "/aboutus" },
+	{ href: "/academics", label: "Academics", match: "/academics" },
+	{ href: "/events", label: "Events", match: "/events" },
+	{ href: "/getinvolved", label: "Get Involved", match: "/getinvolved" },
+	{ href: "/roar", label: "ROAR", match: "/roar" },
+	{ href: "/conferences", label: "Conferences", match: "/conferences" },
+	{ href: "/sponsorship", label: "Sponsorship", match: "/sponsorship" },
+	{ href: "/contact", label: "Contact", match: "/contact" },
+];
 
 export const Navbar = () => {
 	const router = useRouter();
 	const [active, setActive] = useState(false);
 
-	const handleClick = () => {
-		setActive(!active);
-	};
+	const handleClick = () => setActive((current) => !current);
 
 	const handleClickClose = () => {
-		if (window.innerWidth <= 1024) {
-			setActive(false);
-		} else {
-			setActive(true);
-		}
+		if (window.innerWidth <= 1024) setActive(false);
 	};
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			if (window.innerWidth <= 1024) {
-				setActive(false);
-			} else {
-				setActive(true);
-			}
-		}, 1000); // 2000 milliseconds = 2 seconds
-
-		// Cleanup function to clear the timeout if the component is unmounted before the 2 seconds
-		return () => clearTimeout(timer);
+		const updateState = () => setActive(window.innerWidth > 1024);
+		updateState();
+		window.addEventListener("resize", updateState);
+		return () => window.removeEventListener("resize", updateState);
 	}, []);
 
 	const navVariants = {
 		open: {
 			height: "auto",
 			opacity: 1,
-			display: "block", // Ensuring the element is shown in open state
-			transition: {
-				duration: 0.3,
-				when: "beforeChildren",
-				staggerChildren: 0.1, // Delay between each item
-			},
+			display: "block",
+			transition: { duration: 0.25, when: "beforeChildren", staggerChildren: 0.05 },
 		},
 		closed: {
 			height: 0,
 			opacity: 0,
-			transition: {
-				duration: 0.3,
-				when: "afterChildren",
-				
-			},
-			transitionEnd: {
-				display:"none", // Hide the element after transition
-			},
+			transition: { duration: 0.25, when: "afterChildren" },
+			transitionEnd: { display: "none" },
 		},
 	};
 
 	const itemVariants = {
-		open: {
-			opacity: 1,
-			y: 0,
-		},
-		closed: {
-			opacity: 0,
-			y: -20,
-		},
+		open: { opacity: 1, y: 0 },
+		closed: { opacity: 0, y: -12 },
 	};
 
+	const isNavActive = (match) => router.pathname === match || router.pathname.startsWith(match + "/");
+
 	return (
-		<>
-			<nav className="sticky top-0 z-50 flex flex-wrap items-center lg:justify-between border-b-4 border-black bg-mun-burgundy p-3">
-				<Link href="/" onClick={handleClickClose}>
-					<div className="inline-flex items-center p-4">
-						<span className="text-md font-norwester hover:brightness-75 transition-all delay-150 duration-500 tracking-widest text-white md:text-lg lg:text-xl xl:text-3xl">MUN ENGINEERING SOCIETY</span>
-					</div>
+		<nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-sm">
+			<div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-5 py-3 lg:px-8">
+				<Link href="/" onClick={handleClickClose} className="inline-flex items-center gap-3 text-slate-900 transition hover:text-slate-700">
+			<Image src="/res/logos/full_no_text.png" alt="MUN Engineering Society towers logo" width={36} height={36} className="full bg-white p-1" />
 				</Link>
-				<motion.div className="ml-auto" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-					<button className="inline-flex rounded p-3 text-white outline-none hover:bg-mun-burgundy lg:hidden" onClick={handleClick}>
-						<svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<NavbarHamburger isOpen={active} />
-						</svg>
-					</button>
-				</motion.div>
-				<motion.div className="w-full lg:inline-flex lg:w-auto justify-end" variants={navVariants} initial="closed" animate={active ? "open" : "closed"}>
-					<div className="z-50 flex w-full flex-col items-start lg:ml-auto lg:inline-flex lg:w-auto lg:flex-row lg:items-center lg:justify-end">
-						<motion.div className="py-2" variants={itemVariants}>
-							<Link href="/aboutus">
-								<div className={`w-full items-center justify-center rounded px-3 py-2 font-norwester tracking-wider text-lg font-bold text-white transition-transform hover:scale-110 hover:bg-mun-burgundy hover:text-white active:scale-100 lg:inline-flex lg:w-auto xl:text-lg ${router.pathname == "/" ? "text-mun-burgundy" : "text-brand-darkblue"}`} onClick={handleClickClose}>
-									About
-								</div>
-							</Link>
-						</motion.div>
-						<motion.div className="py-2" variants={itemVariants}>
-							<Link href="/academics">
-								<div className={`w-full items-center justify-center rounded px-3 py-2 font-norwester tracking-widest text-lg font-bold text-white transition-transform hover:scale-110 hover:bg-mun-burgundy hover:text-white active:scale-100 lg:inline-flex lg:w-auto xl:text-lg ${router.pathname == "/" ? "text-mun-burgundy" : "text-brand-darkblue"}`} onClick={handleClickClose}>
-									Academics
-								</div>
-							</Link>
-						</motion.div>
-						<motion.div className="py-2" variants={itemVariants}>
-							<Link href="/events">
-								<div className={`w-full items-center justify-center rounded px-3 py-2 font-norwester tracking-widest text-lg font-bold text-white transition-transform hover:scale-110 hover:bg-mun-burgundy hover:text-white active:scale-100 lg:inline-flex lg:w-auto xl:text-lg ${router.pathname == "/" ? "text-mun-burgundy" : "text-brand-darkblue"}`} onClick={handleClickClose}>
-									Events
-								</div>
-							</Link>
-						</motion.div>
-						<motion.div className="py-2" variants={itemVariants}>
-							<Link href="/getinvolved">
-								<div className={`w-full items-center justify-center rounded px-3 py-2 font-norwester tracking-widest text-lg font-bold text-white transition-transform hover:scale-110 hover:bg-mun-burgundy hover:text-white active:scale-100 lg:inline-flex lg:w-auto xl:text-lg ${router.pathname == "/" ? "text-mun-burgundy" : "text-brand-darkblue"}`} onClick={handleClickClose}>
-									Get Involved
-								</div>
-							</Link>
-						</motion.div>
-						<motion.div className="py-2" variants={itemVariants}>
-							<Link href="/roar">
-								<div className={`w-full items-center justify-center rounded px-3 py-2 font-norwester tracking-widest text-lg font-bold text-white transition-transform hover:scale-110 hover:bg-mun-burgundy hover:text-white active:scale-100 lg:inline-flex lg:w-auto xl:text-lg ${router.pathname == "/" ? "text-mun-burgundy" : "text-brand-darkblue"}`} onClick={handleClickClose}>
-									ROAR
-								</div>
-							</Link>
-						</motion.div>
+
+				<button
+					className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-700 transition hover:bg-slate-200 lg:hidden"
+					onClick={handleClick}
+					aria-label="Toggle menu"
+				>
+					<svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<NavbarHamburger isOpen={active} />
+					</svg>
+				</button>
+
+				<motion.div className="w-full lg:inline-flex lg:w-auto" variants={navVariants} initial="closed" animate={active ? "open" : "closed"}>
+					<div className="flex w-full flex-col gap-1 rounded-2xl bg-white p-3 shadow-md lg:ml-auto lg:flex-row lg:items-center lg:gap-1 lg:p-0 lg:shadow-none">
+						{navItems.map((item) => {
+							const isActive = isNavActive(item.match);
+							return (
+								<motion.div className="py-0.5" variants={itemVariants} key={item.href}>
+									<Link
+										href={item.href}
+										onClick={handleClickClose}
+										className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold transition ${
+											isActive ? "bg-[#832633] text-white shadow-sm" : "text-slate-700 hover:bg-slate-100"
+										}`}
+									>
+										{item.label}
+									</Link>
+								</motion.div>
+							);
+						})}
 					</div>
 				</motion.div>
-			</nav>
-		</>
+			</div>
+		</nav>
 	);
 };
 
 export const NavbarHamburger = (props) => {
 	if (props.isOpen) {
-		return (
-			<>
-				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-			</>
-		);
+		return <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />;
 	}
-	return (
-		<>
-			<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h36M4 12h36M4 18h36" />
-		</>
-	);
+	return <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />;
 };

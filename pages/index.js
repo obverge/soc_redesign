@@ -1,51 +1,135 @@
-import Image from "next/image";
-import React, { Component } from "react";
-import Parallax from "/components/Parallax";
-import Disciplines from "/components/Disciplines";
-import SlideshowComponent from "/components/SlideshowCard";
-import getImagePaths from "/components/getImagePaths";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import Disciplines from "/components/Disciplines";
+import QuickLinkCard from "/components/QuickLinkCard";
+import eventsData from "public/json/events.json";
 
 export default function Home() {
+	const upcomingEvents = eventsData.slice(0, 3);
+
 	return (
-		<main className="repeating-bg flex min-h-screen flex-col overflow-hidden">
+		<>
 			<Head>
-				<title> MUN Engineering Society</title>
+				<title>MUN Engineering Society</title>
 			</Head>
-			<Parallax image="/res/location/engineering_building.jpeg">
-				<div className="flex flex-col justify-between md:flex-row">
-					<div className="flex flex-col">
-						<img src="/res/logos/full.png" className="object-contain p-5 transition-all hover:scale-105 md:h-4/5 md:w-auto md:pl-20 md:pr-20 md:pt-10" />
+
+			<section className="border-b border-slate-200 bg-white">
+				<div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+					<p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Memorial University</p>
+					<h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+						Your Engineering Community
+					</h1>
+					<p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+						Representing, advocating, and creating resources for all engineering students at Memorial University.
+					</p>
+					<div className="mt-8 flex flex-wrap gap-3">
+						<Link href="/events" className="rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
+							View Events
+						</Link>
+						<Link href="/aboutus" className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+							Meet the Team
+						</Link>
 					</div>
-					<div className="space-y-5 p-10 md:mt-10 md:space-y-10">
-						<h3 className="whitespace-nowrap text-center font-norwester text-3xl tracking-wider text-white md:text-right xl:text-5xl 2xl:text-7xl">1200+ Students</h3>
-						<h3 className="whitespace-nowrap text-center font-norwester text-3xl tracking-wider text-white md:text-right xl:text-5xl 2xl:text-7xl">20+ Groups</h3>
-						<h3 className="whitespace-nowrap text-center font-norwester text-3xl tracking-wider text-white md:text-right xl:text-5xl 2xl:text-7xl">7 Disciplines</h3>
-						<h3 className="whitespace-nowrap text-center font-norwester text-3xl tracking-wider text-white md:text-right xl:text-5xl 2xl:text-7xl">2 Societies</h3>
-						<h1 className="w-auto whitespace-nowrap text-center font-norwester text-4xl tracking-wider text-white md:text-right xl:text-6xl 2xl:text-8xl">1 Community</h1>
+				</div>
+			</section>
+
+			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+				<div className="grid gap-4 md:grid-cols-3">
+					<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Student hub</p>
+						<h2 className="mt-4 text-xl font-semibold text-slate-950">Everything engineering students need in one place</h2>
+						<p className="mt-3 text-slate-600">Events, teams, conferences, sponsors, and contact pathways — all built for Memorial engineering students.</p>
+					</div>
+					<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Industry partners</p>
+						<h2 className="mt-4 text-xl font-semibold text-slate-950">Connect companies with student teams</h2>
+						<p className="mt-3 text-slate-600">Sponsor events, host student presentations, or recruit talented MUN engineers for internships and co-op.</p>
+					</div>
+					<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Conferences</p>
+						<h2 className="mt-4 text-xl font-semibold text-slate-950">Attend and apply to top events</h2>
+						<p className="mt-3 text-slate-600">See what students have attended, what’s open now, and how to find new engineering conference opportunities.</p>
 					</div>
 				</div>
-			</Parallax>
-			<div className="h-10 border-b-4 border-t-4 border-black bg-mun-burgundy" />
-			<Disciplines />
-			<div className="ml-2 mr-2 mt-4 justify-evenly space-y-4 rounded-3xl border-4 border-black bg-stone-400 py-8 sm:ml-8 sm:mr-8 lg:ml-20 lg:mr-20 xl:flex">
-				<div className="space-y-10">
-					<h2 className="text-center font-norwester text-2xl font-semibold text-black underline sm:text-4xl">Welcome to Our Website!</h2>
-					<p className="text-justify ml-7 mr-7 rounded-2xl font-sans text-lg text-black transition-transform lg:ml-20 lg:mr-20 lg:text-2xl ">Welcome to the Memorial University Engineering Society website, a vibrant and diverse community that brings together students from various engineering disciplines. Our society is a hub of innovation and learning, home to a multitude of groups each contributing to a dynamic and enriching environment. We are united by our shared passion for engineering and our commitment to fostering a collaborative and inclusive space.</p>
-					<p className="text-justify ml-7 mr-7 rounded-2xl font-sans text-lg text-black transition-transform lg:ml-20 lg:mr-20 lg:text-2xl ">Whether you're a current student seeking to engage with like-minded peers, a prospective student exploring the possibilities of an engineering education, or simply an enthusiast interested in the field, we warmly invite you to explore our site. Delve into the wealth of resources we offer, learn more about our groups and their activities, and discover how you can get involved. Our mission is to foster innovation, collaboration, and excellence in the field of engineering. We believe in the power of community and the importance of shared knowledge.</p>
-					<p className="text-justify ml-7 mr-7 rounded-2xl font-sans text-lg text-black transition-transform lg:ml-20 lg:mr-20 lg:text-2xl ">As you navigate through our site, we hope you will be inspired by the opportunities that await you here. Join us as we continue to shape the future of engineering, pushing boundaries and driving change. We look forward to welcoming you into our community and embarking on this exciting journey together.</p>
+			</section>
+
+			<section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+				<div className="mb-8">
+					<h2 className="text-2xl font-semibold text-slate-950">Disciplines</h2>
+					<p className="mt-2 text-slate-600">Explore programs across Memorial's Faculty of Engineering.</p>
 				</div>
-				<div className="flex justify-evenly gap-x-5 p-16 xl:flex-col">
-					<img src="/res/logos/soc_round_logo.png" className="h-24 rounded-full border-4 border-white xl:h-auto" />
-					<img src="/res/logos/mun_logo.png" className="h-24 rounded-lg bg-white p-5 xl:h-auto" />
+				<Disciplines />
+			</section>
+
+			<section className="border-t border-slate-200 bg-slate-50">
+				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+					<h2 className="mb-8 text-2xl font-semibold text-slate-950">Explore</h2>
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						<QuickLinkCard href="/academics" title="Academics" description="Co-op guides, discipline overviews, capstone projects, and campus resources." icon="school" />
+						<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" />
+						<QuickLinkCard href="/getinvolved" title="Get Involved" description="Design teams, student organizations, and volunteer opportunities." icon="groups" />
+						<QuickLinkCard href="/conferences" title="Conferences" description="Find student conferences, application deadlines, and travel resources." icon="public" />
+						<QuickLinkCard href="/sponsorship" title="Sponsorship" description="Partner with the society for Charity Ball, orientation, and student events." icon="volunteer_activism" />
+						<QuickLinkCard href="/contact" title="Contact" description="Reach society leadership, sponsors, or partners for academic and event support." icon="mail" />
+					</div>
 				</div>
-			</div>
-			<div className="ml-2 mr-2 mt-4 grid grid-cols-1 justify-between gap-y-5 gap-x-20 pb-5 pt-5 sm:ml-8 sm:mr-8 md:grid-cols-2 md:place-items-center lg:ml-20 lg:mr-20 xl:flex xl:gap-x-3 xl:gap-y-0">
-				<SlideshowComponent title="Academics" href="/academics" delay="0" images={["../res/academics/essc-f2022.png", "../res/academics/mech_boys.png", "../res/academics/deans_j2025.png"]} />
-				<SlideshowComponent title="Events" href="/events" delay="2500" images={["../res/events/dday_f2022.jpg", "../res/events/softball_2014.jpeg", "../res/events/softball_2023.jpg"]} />
-				<SlideshowComponent title="Get Involved" href="/getinvolved" delay="7500" images={["../res/get_involved/eastern_edge_presentation_2023.jpg", "../res/get_involved/eastern_edge_deck_2023.jpg", "../res/get_involved/concrete_tbog_team.png"]} />
-				<SlideshowComponent title="News" href="/news" delay="5000" images={["../res/news/eastern_edge_win_2023.JPG"]} />
-			</div>
-		</main>
+			</section>
+
+			<section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+				<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+					<div className="grid gap-6 lg:grid-cols-3">
+						<div>
+							<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Sponsor & recruit</p>
+							<h3 className="mt-4 text-xl font-semibold text-slate-950">Host a presentation</h3>
+							<p className="mt-3 text-slate-600">Companies can connect with engineering students through info sessions, recruitment workshops, and guest talks.</p>
+						</div>
+						<div>
+							<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Conferences</p>
+							<h3 className="mt-4 text-xl font-semibold text-slate-950">Discover applications and travel opportunities</h3>
+							<p className="mt-3 text-slate-600">Track conferences attended by students, open application windows, and self-sourced engineering events.</p>
+						</div>
+						<div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-slate-50 p-6">
+							<div>
+								<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Let’s collaborate</p>
+								<h3 className="mt-4 text-xl font-semibold text-slate-950">Sponsor an event or hackathon</h3>
+								<p className="mt-3 text-slate-600">Build deeper partnerships with design teams, corporate recruitment, and student-run competitions.</p>
+							</div>
+							<Link href="/contact" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#832633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
+								Contact us
+							</Link>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{upcomingEvents.length > 0 ? (
+				<section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+					<div className="mb-8 flex items-end justify-between">
+						<div>
+							<h2 className="text-2xl font-semibold text-slate-950">Upcoming Events</h2>
+							<p className="mt-2 text-slate-600">Don't miss what's happening this month.</p>
+						</div>
+						<Link href="/events" className="hidden text-sm font-semibold text-[#832633] hover:underline sm:block">
+							View all →
+						</Link>
+					</div>
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{upcomingEvents.map((event, i) => (
+							<Link
+								key={i}
+								href="/events"
+								className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+							>
+								<p className="text-sm font-semibold text-[#832633]">{event.date}</p>
+								<h3 className="mt-1 text-lg font-semibold text-slate-950">{event.name}</h3>
+								{event.location ? <p className="mt-1 text-sm text-slate-600">{event.location}</p> : null}
+							</Link>
+						))}
+					</div>
+				</section>
+			) : null}
+
+		</>
 	);
 }

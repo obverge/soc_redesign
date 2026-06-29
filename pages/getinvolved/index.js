@@ -1,150 +1,148 @@
 import { useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { TeamCard } from "../../components/TeamCard";
-import Parallax from "../../components/Parallax";
 import jsonData from "public/json/get_involved.json";
-import Head from 'next/head'
+import PageHero from "../../components/PageHero";
+import Head from "next/head";
 
 const data = jsonData;
 
+const tabs = [
+	{ id: 1, label: "Design Teams", mobileIcon: "emoji_events" },
+	{ id: 2, label: "Organizations", mobileIcon: "diversity_3" },
+	{ id: 3, label: "Volunteer", mobileIcon: "volunteer_activism" },
+];
+
 export default function GetInvolved() {
 	return (
-		<main className="repeating-bg">
-						<Head>
-				<title> MUN Eng Society | Get Involved</title>
+		<>
+			<Head>
+				<title>MUN Eng Society | Get Involved</title>
 			</Head>
-			<Parallax image="../res/get_involved/eastern_edge_presentation_2023.jpg">
-				<div className="flex h-fit flex-col items-center pt-5 text-center text-white lg:pt-20">
-					<h3 className="font-norwester text-4xl font-bold lg:text-6xl xl:text-7xl 2xl:text-8xl">GET INVOLVED</h3>
-					<div className="text-center text-md space-y-5 p-8 font-maven md:text-xl lg:p-20 xl:text-xl 2xl:text-xl lg:w-4/5 w-6/7">
-						<p className="text-shadow-lg text-justify">&emsp;As technology continues to advance at an accelerated pace, student-led initiatives play a pivotal role in fostering innovation and inspiring the next generation of engineers and scientists.</p>
-						<p className="text-shadow-lg text-justify">&emsp;These multidisciplinary teams undertake a wide array of projects, ranging from the construction of sustainable sailboats, development of autonomous vehicles, to the design of lightweight racers and chemical-powered cars. Such endeavors not only enhance technical skills, but also encourage teamwork, problem-solving, and communication abilities, preparing students for future careers in various industries.</p>
-					</div>
-					<h2 className="hidden lg:mb-10 font-maven_medium text-3xl lg:block">Join a team, organization, or volunteer!</h2>
+			<PageHero
+				label="Get Involved"
+				title="Build, Compete, Connect"
+				description="Join a design team, student organization, or volunteer — there's a place for every engineer at MUN."
+			/>
+			<section className="mx-auto max-w-7xl px-5 py-8 sm:px-8">
+				<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+					<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Student involvement</p>
+					<h2 className="mt-4 text-xl font-semibold text-slate-950">Find your engineering community</h2>
+					<p className="mt-3 text-slate-600">Design teams, student societies, and volunteering opportunities are all here to help you grow and make an impact.</p>
 				</div>
-			</Parallax>
-			<div id="paralaxdivider" className="h-5 border-t-4 border-black bg-gradient-to-b  from-mun-burgundy to-stone-400" />
+			</section>
 			<Navigation />
-		</main>
+		</>
 	);
 }
 
 function Groups({ type }) {
 	return (
-		<div className="grid grid-cols-1 gap-5 pb-10 pt-5 md:grid-cols-2 xl:grid-cols-3">
-			{Object.entries(type).map(([team_name, team_data]) => {
-				return <TeamCard name={team_name} title={team_data.title} logo={team_data.logo} text={team_data.text} link={team_data.link} linkedin={team_data.linkedin} instagram={team_data.instagram} facebook={team_data.facebook} twitter={team_data.twitter} discord={team_data.discord} contact={team_data.contact} date={team_data.date} disciplines={team_data.disciplines} />;
-			})}
+		<div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+			{Object.entries(type).map(([team_name, team_data]) => (
+				<TeamCard
+					key={team_name}
+					name={team_name}
+					title={team_data.title}
+					logo={team_data.logo}
+					text={team_data.text}
+					link={team_data.link}
+					linkedin={team_data.linkedin}
+					instagram={team_data.instagram}
+					facebook={team_data.facebook}
+					twitter={team_data.twitter}
+					discord={team_data.discord}
+					contact={team_data.contact}
+					date={team_data.date}
+					disciplines={team_data.disciplines}
+				/>
+			))}
 		</div>
 	);
 }
 
 function Navigation() {
-	const [currentButton, setCurrentButton] = useState(1);
+	const [currentTab, setCurrentTab] = useState(1);
 	const [showPastTeams, setShowPastTeams] = useState(false);
 
-	const handleButtonClick = (buttonNumber) => {
-		setCurrentButton(buttonNumber);
-		if (window.innerWidth >= 1024) {
-			scrollToTopD();
-		} else {
-			scrollToTopM();
-		}
-	};
-
 	return (
-		<div className="items-center xl:flex xl:flex-col">
-			<div id="subnavbar" className="sticky top-[76px] z-40 flex w-full justify-evenly gap-x-3 rounded-b-3xl border-b-2 border-black bg-stone-400 lg:pb-5 lg:pl-20 lg:pr-20 lg:pt-3 xl:top-[92px]">
-				<button className={`hidden w-1/3 whitespace-nowrap p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:block xl:text-3xl ${currentButton === 1 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(1)}>
-					Competitive Teams
-				</button>
-				<button className={`hidden w-1/3 whitespace-nowrap p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:block xl:text-3xl ${currentButton === 2 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(2)}>
-					Organizations
-				</button>
-				<button className={`hidden w-1/3 whitespace-nowrap p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:block xl:text-3xl ${currentButton === 3 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(3)}>
-					Volunteering Opportunities
-				</button>
+		<div>
+			<nav className="sticky top-[73px] z-40 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+				<div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 py-3 sm:px-8">
+					{tabs.map((tab) => (
+						<button
+							key={tab.id}
+							onClick={() => setCurrentTab(tab.id)}
+							className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition ${
+								currentTab === tab.id ? "bg-[#832633] text-white shadow-sm" : "text-slate-700 hover:bg-slate-100"
+							}`}
+						>
+							<span className="hidden sm:inline">{tab.label}</span>
+							<span className="material-icons sm:hidden">{tab.mobileIcon}</span>
+						</button>
+					))}
+				</div>
+			</nav>
 
-				<button className={`w-1/3 p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:hidden xl:text-3xl ${currentButton === 1 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(1)}>
-					<span className="material-icons pointer-events-none" style={{ fontSize: "40px" }}>
-						emoji_events
-					</span>
-				</button>
-				<button className={`w-1/3 p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:hidden xl:text-3xl ${currentButton === 2 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(2)}>
-					<span className="material-icons pointer-events-none" style={{ fontSize: "40px" }}>
-						diversity_3
-					</span>
-				</button>
-				<button className={`w-1/3 p-2 font-norwester text-sm font-extrabold transition-transform md:text-xl lg:hidden xl:text-3xl ${currentButton === 3 ? "text-black underline xl:scale-125" : "text-white"}`} onClick={() => handleButtonClick(3)}>
-					<span className="material-icons pointer-events-none" style={{ fontSize: "40px" }}>
-						volunteer_activism
-					</span>
-				</button>
-			</div>
-
-			<div className="mt-4 w-full">
-				<div className={`transition-opacity ${currentButton === 1 ? "block opacity-100" : "hidden opacity-0"} delay-200`}>
-					<h3 className="text-center font-norwester text-4xl text-black underline lg:hidden">Competitive Teams</h3>
-					<Groups type={data.current_competitive} />
-					<div className="flex flex-col justify-center place-items-center">
-						<button className='bg-black lg:w-1/3 rounded-full p-5 text-xl lg:text-3xl font-norwester mb-5' onClick={() => setShowPastTeams(!showPastTeams)}>{showPastTeams ? "Hide Past Teams" : "Show Past Teams"}</button>
-						{showPastTeams && <Groups type={data.past_competitive} />}
+			<div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+				<div className="mb-10">
+					<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Student involvement</p>
+						<h3 className="mt-4 text-xl font-semibold text-slate-950">Join a team, society, or volunteer</h3>
+						<p className="mt-3 text-slate-600">Use the tabs above to explore competitive teams, student organizations, and volunteer opportunities.</p>
 					</div>
 				</div>
-				<div className={`transition-opacity ${currentButton === 2 ? "block opacity-100" : "hidden opacity-0"} delay-200`}>
-					<h3 className="text-center font-norwester text-4xl text-black underline lg:hidden">Organizations</h3>
-					<Groups type={data.organization} />
-				</div>
-				<div className={`transition-opacity ${currentButton === 3 ? "block opacity-100" : "hidden opacity-0"} delay-200 justify-items-center`}>
-					<h3 className="text-center font-norwester text-4xl text-black underline lg:hidden">Volunteering Opportunities</h3>
-					<div className="ml-5 mr-5 pb-10 flex min-h-fit flex-col pt-5 w-3/4 lg:w-3/5">
-						<h2 className="text-center pb-5 font-norwester text-2xl font-bold text-black">Student Volunteer Bureau</h2>
-						
-						<p className="text-black">Volunteering is an excellent opportunity for students to build their experience in leadership roles while also providing a beneficial service to others in their communities. It is a fulfilling pursuit that has also proven useful when looking for Work Terms, as it is experience recognized by employers. Volunteering is simple; give it a shot!</p><br></br>
-						<p className="text-black">The Student Volunteer Bureau is an organization within MUN that organizes the Volunteer Incentive Program (VIP), which aims to recognize and reward student efforts to volunteer. Students can unlock different tiers depending on their volunteering experience and involvement. Find more about it in the link below:</p>
-						
-						<div className="w-full justify-center flex mt-5 mb-2">
-							<button className="justify-center rounded-full lg:w-1/3 md:w-1/3 w-3/4 bg-blue-500 px-4 py-2 font-bold text-white transition hover:bg-blue-700" onClick={() => window.open("https://www.mun.ca/volunteer/", "_blank")}>
-								Volunteer Incentive Program
+				{currentTab === 1 ? (
+					<div>
+						<h2 className="mb-6 text-xl font-semibold text-slate-950">Competitive Design Teams</h2>
+						<Groups type={data.current_competitive} />
+						<div className="mt-8 flex flex-col items-center gap-4">
+							<button
+								onClick={() => setShowPastTeams(!showPastTeams)}
+								className="rounded-full border border-slate-300 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+							>
+								{showPastTeams ? "Hide Past Teams" : "Show Past Teams"}
 							</button>
+							{showPastTeams ? (
+								<div className="w-full">
+									<h3 className="mb-4 text-center text-lg font-semibold text-slate-700">Past Teams</h3>
+									<Groups type={data.past_competitive} />
+								</div>
+							) : null}
 						</div>
-						
-						
 					</div>
-				</div>
+				) : null}
+
+				{currentTab === 2 ? (
+					<div>
+						<h2 className="mb-6 text-xl font-semibold text-slate-950">Student Organizations</h2>
+						<Groups type={data.organization} />
+					</div>
+				) : null}
+
+				{currentTab === 3 ? (
+					<div className="mx-auto max-w-2xl">
+						<h2 className="mb-4 text-xl font-semibold text-slate-950">Volunteer Opportunities</h2>
+						<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+							<h3 className="text-lg font-semibold text-slate-950">Student Volunteer Bureau</h3>
+							<p className="mt-3 leading-7 text-slate-600">
+								Volunteering is a great way to build leadership experience while giving back to your community. It's also recognized by employers when you're applying for work terms.
+							</p>
+							<p className="mt-3 leading-7 text-slate-600">
+								The Student Volunteer Bureau organizes the Volunteer Incentive Program (VIP), which recognizes and rewards student volunteering efforts. Students unlock different tiers based on their involvement.
+							</p>
+							<a
+								href="https://www.mun.ca/volunteer/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="mt-6 inline-flex rounded-full bg-[#832633] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
+							>
+								Volunteer Incentive Program
+							</a>
+						</div>
+					</div>
+				) : null}
 			</div>
 		</div>
 	);
 }
-
-/*	
-	old volunteering text
-	<h2 className="text-center font-norwester text-2xl font-bold text-black">Engineering Volunteer Network</h2>
-						<p className="text-black">Memorial Engineering Student Society is dedicated to uplifting not only our student body but also our community. We believe one of the fundamental ways of giving back comes through volunteering. We want to ensure it is always an accessible option for our students. We've created a space for students, clubs, companies, or individuals to bring forward volunteering opportunities or any little thing they need help with! You’ll fill the below form, giving us dates, number of volunteers required and any other relevant info! We’ll take this information and contact the keen students who have signed up and get back to you.​</p>
-						<div className="flex justify-center gap-x-10 pb-5 pt-5">
-							<button className="rounded-full bg-blue-500 px-4 py-2 font-bold text-white transition hover:bg-blue-700" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSd6bapES16a9c40zQUhLsR4OoZJD2FBJ_PfZA6cje3WJosRXw/viewform", "_blank")}>
-								Volunteer Request Form
-							</button>
-							<button className="rounded-full bg-blue-500 px-4 py-2 font-bold text-white transition hover:bg-blue-700" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeneWqIDHKuxzMUeHK9Zz7jpy0DBfJN4ZwlPBustCRZR1b1-A/viewform", "_blank")}>
-								Volunteer Sign-Up Form
-							</button>
-						</div>
-						<p className="text-black">Volunteers from MUN Engineering Societies A and B had the distinct honour of helping Make a Wish Canada grant Jenna’s wish - a wheelchair accessible swing set! After a couple phone calls, a group of volunteers came together and managed to assemble Jenna’s swing in one evening. Many, many thanks to Dr. Stephen Bruneau with the Faculty and Natalie Ryan of Make a Wish for bringing this opportunity our students.</p>
-*/
-
-const scrollToTopD = () => {
-	const element = document.getElementById("paralaxdivider");
-	element.scrollIntoView({
-		behavior: "smooth",
-	});
-};
-
-const scrollToTopM = () => {
-	const element = document.getElementById("paralaxdivider");
-	const rect = element.getBoundingClientRect();
-	const offset = rect.top + window.scrollY;
-	window.scrollTo({
-		top: offset - 50, // 50 pixels above the element
-		behavior: "smooth",
-	});
-};

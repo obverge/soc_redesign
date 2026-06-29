@@ -1,27 +1,39 @@
-import { NothingHereYet } from "../../components/NothingHereYet";
-import jsonData from "public/json/events.json";
-import { EventCard } from "../../components/EventCard";
-import Head from 'next/head'
-
+import Head from "next/head";
+import { useState } from "react";
+import PageHero from "../../components/PageHero";
+import BlogPostCard from "../../components/BlogPostCard";
+import RoarPostModal from "../../components/RoarPostModal";
+import posts from "public/json/roar.json";
 
 export default function Roar() {
+	const [activePost, setActivePost] = useState(null);
+
+	const normalizedPosts = posts.map((post) => ({
+		...post,
+		image: post.image?.includes("public/")
+			? post.image.replace("public/", "/")
+			: post.image,
+	}));
+
 	return (
-		<main className="repeating-bg flex min-h-screen flex-col">
-						<Head>
-				<title> MUN Eng Society | ROAR</title>
+		<>
+			<Head>
+				<title>MUN Eng Society | ROAR</title>
 			</Head>
-			<section className="flex flex-col items-center w-full pt-10 pb-5 pl-2 pr-2 lg:pb-10 lg:pl-10 lg:pr-10 lg:pt-10 gap-5 text-black">
-				<div className=" flex flex-col items-center w-1/3 pt-10 pb-10">
-					<h1 className="text-8xl font-ptserif" >ROAR</h1>
-				</div>
-				<div className="flex flex-col items-start w-3/4">
-					<h2 className="text-3xl font-serif pt-2"  >Issue 1 (18-03-2026)</h2>
-				</div>
-				<div className="flex justify-center w-full lg:w-3/4">
-					<embed className="w-full h-screen pt-2" src="../res/ROAR/Roar_2026-03-12.pdf"
-						type="application/pdf"></embed>
+			<PageHero
+				label="ROAR Magazine"
+				title="Stories from Engineering"
+				description="Articles, insights, and updates from students, faculty, and teams across the MUN engineering community. Have a story? Reach out to your society's Director of Communications."
+			/>
+			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+				<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{normalizedPosts.map((post) => (
+						<BlogPostCard key={post.slug} {...post} onOpen={() => setActivePost(post)} />
+					))}
 				</div>
 			</section>
-		</main>
+
+			<RoarPostModal post={activePost} onClose={() => setActivePost(null)} />
+		</>
 	);
 }
