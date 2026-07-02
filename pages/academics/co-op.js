@@ -1,5 +1,5 @@
 import Head from "next/head";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import AcademicsNav from "../../components/AcademicsNav";
 
 export default function CoOp() {
@@ -8,7 +8,7 @@ export default function CoOp() {
 			<Head>
 				<title>MUN Eng Society | Co-op</title>
 			</Head>
-			<PageHero label="Academics" title="Co-op" description="Get the most out of your co-op experience at Memorial." />
+			<PageHeroWithImage label="Academics" title="Co-op" description="Get the most out of your co-op experience at Memorial." /* imageSrc="/res/coop-hero.jpg" */ />
 			<AcademicsNav />
 			<article className="prose-section mx-auto max-w-3xl px-5 py-12 sm:px-8">
 				<p>

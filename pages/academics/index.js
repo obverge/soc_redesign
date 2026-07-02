@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import AcademicsNav from "../../components/AcademicsNav";
 import QuickLinkCard from "../../components/QuickLinkCard";
 
@@ -10,10 +10,11 @@ export default function Academics() {
 			<Head>
 				<title>MUN Eng Society | Academics</title>
 			</Head>
-			<PageHero
+			<PageHeroWithImage
 				label="Academics"
 				title="Resources for Your Journey"
 				description="From Engineering One through capstone — guides, support centres, and discipline overviews to help you succeed."
+				/* imageSrc="/res/academics-hero.jpg" */
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">

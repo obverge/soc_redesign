@@ -1,5 +1,5 @@
 import Head from "next/head";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import AcademicsNav from "../../components/AcademicsNav";
 
 const disciplines = [
@@ -19,10 +19,11 @@ export default function Disciplines() {
 			<Head>
 				<title>MUN Eng Society | Disciplines</title>
 			</Head>
-			<PageHero
+			<PageHeroWithImage
 				label="Academics"
 				title="Engineering Disciplines"
 				description="Memorial offers eight engineering programs. Explore each discipline to learn about courses, careers, and faculty resources."
+				/* imageSrc="/res/disciplines-hero.jpg" */
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">

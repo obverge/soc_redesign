@@ -1,5 +1,5 @@
 import Head from "next/head";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import AcademicsNav from "../../components/AcademicsNav";
 
 const resources = [
@@ -56,7 +56,7 @@ export default function Support() {
 			<Head>
 				<title>MUN Eng Society | Engineering One & Support</title>
 			</Head>
-			<PageHero
+			<PageHeroWithImage
 				label="Academics"
 				title="Engineering One & Academic Support"
 				description="Campus resources to help you succeed — from the Success Centre to counselling and scholarships."

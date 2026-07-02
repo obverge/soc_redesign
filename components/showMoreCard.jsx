@@ -10,15 +10,15 @@ const ShowMoreText = (props) => {
 	};
 
 	return (
-		<div className="">
-			<p className="pt-2 text-center font-norwester text-lg text-black underline lg:pt-0">       </p>
-			<p className="pb-5 pl-5 pr-5 text-justify font-maven text-black">
+		<div>
+			<p className="pb-5 px-5 text-justify font-maven text-slate-700">
 				{textToDisplay}{" "}
-				{
-					<button className="text-white" onClick={toggleTextShown}>
-						{isTextShown ? "Show Less" : "Show More"}
-					</button>
-				}
+				<button
+					className="text-[#832633] font-normal transition hover:text-[#6a2024]"
+					onClick={toggleTextShown}
+				>
+					{isTextShown ? "Show Less" : "Show More"}
+				</button>
 			</p>
 		</div>
 	);

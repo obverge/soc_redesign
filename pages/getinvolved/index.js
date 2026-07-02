@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { TeamCard } from "../../components/TeamCard";
 import jsonData from "public/json/get_involved.json";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import Head from "next/head";
 
 const data = jsonData;
@@ -19,18 +19,12 @@ export default function GetInvolved() {
 			<Head>
 				<title>MUN Eng Society | Get Involved</title>
 			</Head>
-			<PageHero
+			<PageHeroWithImage
 				label="Get Involved"
 				title="Build, Compete, Connect"
 				description="Join a design team, student organization, or volunteer — there's a place for every engineer at MUN."
+				imageSrc="/res/pageheaders/getinvolved.jpeg"
 			/>
-			<section className="mx-auto max-w-7xl px-5 py-8 sm:px-8">
-				<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-					<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Student involvement</p>
-					<h2 className="mt-4 text-xl font-semibold text-slate-950">Find your engineering community</h2>
-					<p className="mt-3 text-slate-600">Design teams, student societies, and volunteering opportunities are all here to help you grow and make an impact.</p>
-				</div>
-			</section>
 			<Navigation />
 		</>
 	);

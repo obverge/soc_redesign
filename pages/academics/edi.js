@@ -1,5 +1,5 @@
 import Head from "next/head";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import AcademicsNav from "../../components/AcademicsNav";
 
 export default function EDI() {
@@ -8,10 +8,11 @@ export default function EDI() {
 			<Head>
 				<title>MUN Eng Society | Equity, Diversity & Inclusion</title>
 			</Head>
-			<PageHero
+			<PageHeroWithImage
 				label="Academics"
 				title="Equity, Diversity & Inclusion"
 				description="Resources and community for international students and inclusive engineering at MUN."
+				/* imageSrc="/res/edi-hero.jpg" */
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-3xl px-5 py-12 sm:px-8">

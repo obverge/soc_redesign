@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
-import PageHero from "../../components/PageHero";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 import ConferenceStoryCard from "../../components/ConferenceStoryCard";
 import ConferenceStoryModal from "../../components/ConferenceStoryModal";
 import conferenceStories from "public/json/conference-stories.json";
@@ -14,10 +14,11 @@ export default function Conferences() {
             <Head>
                 <title>MUN Eng Society | Conferences</title>
             </Head>
-            <PageHero
+            <PageHeroWithImage
                 label="Conferences"
                 title="Student Conferences & Events"
                 description="Find upcoming student conferences, application deadlines, travel support, and how to get involved."
+                /* imageSrc="/res/conferences-hero.jpg" */
             />
             <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
                 <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
@@ -39,9 +40,12 @@ export default function Conferences() {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-8 flex flex-wrap gap-4">
                         <Link href="/contact" className="inline-flex rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
                             Contact us about conferences
+                        </Link>
+                        <Link href="/https://forms.gle/T65mWuAnsjDyN64K6" className="inline-flex rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
+                            Self Sources Conference Funding Form
                         </Link>
                     </div>
                 </div>

@@ -1,47 +1,21 @@
+import { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
-import PageHero from "../../components/PageHero";
-
-const societyOptions = [
-	{ value: "society-a", label: "Society A" },
-	{ value: "society-b", label: "Society B" },
-	{ value: "both", label: "Both Societies" },
-];
-
-const reasonOptions = [
-	{ value: "academic", label: "Academic support" },
-	{ value: "financial", label: "Financial support" },
-	{ value: "internal", label: "Internal event or society question" },
-	{ value: "external", label: "External partnership or sponsor" },
-	{ value: "general", label: "General inquiry" },
-];
-
-const contactEmails = {
-	"society-a": {
-		academic: "aspencer@mun.ca",
-		financial: "fchisholm@mun.ca",
-		internal: "sjebruneau@mun.ca",
-		external: "obverge@mun.ca",
-		general: "aspencer@mun.ca",
-	},
-	"society-b": {
-		academic: "nbhopkins@mun.ca",
-		financial: "ejcochran@mun.ca",
-		internal: "bparsons24@mun.ca",
-		external: "nsoomro@mun.ca",
-		general: "aspencer@mun.ca",
-	},
-	both: {
-		academic: "aspencer@mun.ca",
-		financial: "fchisholm@mun.ca",
-		internal: "sjebruneau@mun.ca",
-		external: "obverge@mun.ca",
-		general: "aspencer@mun.ca",
-	},
-};
+import PageHeroWithImage from "../../components/PageHeroWithImage";
+import { societyOptions, reasonOptions, getContactRecipient } from "../../lib/contactEmails";
 
 export default function Contact() {
-	const defaultEmail = contactEmails["society-a"].general;
+	const [society, setSociety] = useState("society-a");
+	const [reason, setReason] = useState("general");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+	const mailtoLink = () => {
+		const recipient = getContactRecipient(society, reason).replace(/,\s*/g, ";");
+		const subject = `Contact request from ${name || "a student"} (${reason})`;
+		const body = `Name: ${name}\nEmail: ${email}\nSociety: ${society}\nReason: ${reason}\n\n${message}`;
+		return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+	};
 
 	return (
 		<>
@@ -49,19 +23,28 @@ export default function Contact() {
 				<title>MUN Eng Society | Contact</title>
 			</Head>
 
-			<PageHero
+			<PageHeroWithImage
 				label="Contact"
-				title="Reach the right people quickly"
-				description="Choose your society and reason for contact, then send an email to the best student society contact." 
+				title="Email the right team instantly"
+				description="Pick who you want to contact and open your email app with a ready-to-send message."
+				imageSrc="/res/pageheaders/contact.jpg"
+				imageAlt="Contact our team"
 			/>
 
-			<section className="mx-auto max-w-4xl px-5 py-16 sm:px-8">
-				<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+			<section className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+				<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
 					<form className="space-y-8">
 						<div className="grid gap-6 sm:grid-cols-2">
 							<div>
-								<label className="mb-2 block text-sm font-semibold text-slate-900">Society</label>
-								<select className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20">
+								<label className="mb-2 block text-sm font-semibold text-slate-900" htmlFor="society">
+									Society
+								</label>
+								<select
+									id="society"
+									value={society}
+									onChange={(e) => setSociety(e.target.value)}
+									className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20"
+								>
 									{societyOptions.map((option) => (
 										<option key={option.value} value={option.value}>
 											{option.label}
@@ -70,8 +53,15 @@ export default function Contact() {
 								</select>
 							</div>
 							<div>
-								<label className="mb-2 block text-sm font-semibold text-slate-900">Reason</label>
-								<select className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20">
+								<label className="mb-2 block text-sm font-semibold text-slate-900" htmlFor="reason">
+									Reason
+								</label>
+								<select
+									id="reason"
+									value={reason}
+									onChange={(e) => setReason(e.target.value)}
+									className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20"
+								>
 									{reasonOptions.map((option) => (
 										<option key={option.value} value={option.value}>
 											{option.label}
@@ -82,30 +72,59 @@ export default function Contact() {
 						</div>
 
 						<div>
-							<label className="mb-2 block text-sm font-semibold text-slate-900">Your name</label>
-							<input type="text" placeholder="Your name" className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20" />
+							<label className="mb-2 block text-sm font-semibold text-slate-900" htmlFor="name">
+								Your name
+							</label>
+							<input
+								id="name"
+								type="text"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+								placeholder="Your name"
+								className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20"
+							/>
 						</div>
 
 						<div>
-							<label className="mb-2 block text-sm font-semibold text-slate-900">Your email</label>
-							<input type="email" placeholder="you@mun.ca" className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20" />
+							<label className="mb-2 block text-sm font-semibold text-slate-900" htmlFor="email">
+								Your email
+							</label>
+							<input
+								id="email"
+								type="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								placeholder="you@mun.ca"
+								className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20"
+							/>
 						</div>
 
 						<div>
-							<label className="mb-2 block text-sm font-semibold text-slate-900">Message</label>
-							<textarea rows={6} placeholder="What do you need help with?" className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20" />
+							<label className="mb-2 block text-sm font-semibold text-slate-900" htmlFor="message">
+								Message
+							</label>
+							<textarea
+								id="message"
+								rows={6}
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+								placeholder="What do you need help with?"
+								className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#832633] focus:ring-2 focus:ring-[#832633]/20"
+							/>
 						</div>
 
-						<div className="grid gap-4 sm:grid-cols-2">
-							<Link href="/events" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
-								See events
-							</Link>
-							<button type="button" className="inline-flex items-center justify-center rounded-full bg-[#832633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
-								Start email
-							</button>
+<div className="grid gap-4 sm:grid-cols-2 items-center">
+						<a
+							href={mailtoLink()}
+							className="inline-flex w-full items-center justify-center rounded-full bg-[#832633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
+							>
+								Open email client
+							</a>
 						</div>
 
-						<p className="mt-6 text-sm text-slate-500">This is a static contact page. Use the button above or select your society/reason to send an email to the right contact.</p>
+						<p className="mt-6 text-sm text-slate-500">
+							After clicking, your default email app will open with the selected recipient, subject, and message.
+						</p>
 					</form>
 				</div>
 			</section>

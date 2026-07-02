@@ -56,7 +56,7 @@ export const Navbar = () => {
 	const isNavActive = (match) => router.pathname === match || router.pathname.startsWith(match + "/");
 
 	return (
-		<nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-sm">
+		<nav className="sticky top-0 z-[999] w-full border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-sm">
 			<div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-5 py-3 lg:px-8">
 				<Link href="/" onClick={handleClickClose} className="inline-flex items-center gap-3 text-slate-900 transition hover:text-slate-700">
 			<Image src="/res/logos/full_no_text.png" alt="MUN Engineering Society towers logo" width={36} height={36} className="full bg-white p-1" />
