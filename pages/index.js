@@ -67,8 +67,9 @@ export default function Home() {
 					<h2 className="mb-8 text-2xl font-semibold text-slate-950">Explore</h2>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 						<QuickLinkCard href="/academics" title="Academics" description="Co-op guides, discipline overviews, capstone projects, and campus resources." icon="school" />
-						<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" />
-						<QuickLinkCard href="/getinvolved" title="Get Involved" description="Design teams, student organizations, and volunteer opportunities." icon="groups" />
+					<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" />
+					<QuickLinkCard href="/sports" title="Sports" description="See championship winners, rivalry history, and team highlights from past seasons." icon="sports_soccer" />
+					<QuickLinkCard href="/getinvolved" title="Get Involved" description="Design teams, student organizations, and volunteer opportunities." icon="groups" />
 						<QuickLinkCard href="/conferences" title="Conferences" description="Find student conferences, application deadlines, and travel resources." icon="public" />
 						<QuickLinkCard href="/sponsorship" title="Sponsorship" description="Partner with the society for Charity Ball, orientation, and student events." icon="volunteer_activism" />
 						<QuickLinkCard href="/contact" title="Contact" description="Reach society leadership, sponsors, or partners for academic and event support." icon="mail" />

@@ -1,0 +1,73 @@
+{
+	"sections": [
+		{
+			"title": "Soccer Tournament Champions",
+			"category": "Soccer",
+			"description": "Memorial engineering teams have competed fiercely in campus soccer tournaments. Track the champions, final scores, and rivalry matchups.",
+			"entries": [
+				{
+					"year": "2024",
+					"event": "Men's Intra-Faculty Cup",
+					"winner": "Engineering A",
+					"result": "2-1 vs Science B",
+					"notes": "Late winner by the captain in the final minutes.",
+					"image": ""
+				},
+				{
+					"year": "2023",
+					"event": "Women’s Fall Tournament",
+					"winner": "Engineering All-Stars",
+					"result": "3-0 vs Business",
+					"notes": "Clean sheet with a dominant midfield performance.",
+					"image": ""
+				}
+			]
+		},
+		{
+			"title": "Hockey Rivalry Results",
+			"category": "Hockey",
+			"description": "A record of playoff wins, rivalry clashes, and championship nights on the ice.",
+			"entries": [
+				{
+					"year": "2024",
+					"event": "Engineering Cup Final",
+					"winner": "Engineering B",
+					"result": "4-3 OT vs Arts & Science",
+					"notes": "Overtime thriller capped by a power play goal.",
+					"image": ""
+				},
+				{
+					"year": "2022",
+					"event": "Rivalry Weekend",
+					"winner": "Engineering A",
+					"result": "5-2 vs Business",
+					"notes": "Strong second-period comeback sparked by two quick goals.",
+					"image": ""
+				}
+			]
+		},
+		{
+			"title": "Softball Playoff Winners",
+			"category": "Softball",
+			"description": "Past softball playoff winners, game highlights, and memorable championship moments.",
+			"entries": [
+				{
+					"year": "2024",
+					"event": "Spring Softball Championship",
+					"winner": "Engineering Legends",
+					"result": "7-4 vs Nursing",
+					"notes": "Walk-off RBI in the bottom of the ninth.",
+					"image": ""
+				},
+				{
+					"year": "2021",
+					"event": "Campus Softball League",
+					"winner": "Engineering Strikers",
+					"result": "6-1 vs Medicine",
+					"notes": "Strong pitching performance and excellent defense.",
+					"image": ""
+				}
+			]
+		}
+	]
+}

@@ -14,7 +14,7 @@ export default function Academics() {
 				label="Academics"
 				title="Resources for Your Journey"
 				description="From Engineering One through capstone — guides, support centres, and discipline overviews to help you succeed."
-				/* imageSrc="/res/academics-hero.jpg" */
+				imageSrc="/res/pageheaders/academics.jpg"
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">

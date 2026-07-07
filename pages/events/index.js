@@ -3,6 +3,7 @@ import Head from "next/head";
 import jsonData from "public/json/events.json";
 import EventCalendar from "../../components/EventCalendar";
 import EventDetailModal from "../../components/EventDetailModal";
+import PageHeroWithImage from "../../components/PageHeroWithImage";
 
 const data = jsonData;
 
@@ -43,33 +44,32 @@ export default function Events() {
 				<title>MUN Eng Society | Events</title>
 			</Head>
 
-			<section className="border-b border-slate-200 bg-white">
-				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-					<p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Events</p>
-					<h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">What's Happening</h1>
-					<p className="mt-4 max-w-2xl text-lg text-slate-600">
-						Socials, tournaments, and society events. Events are tagged with Society A or Society B logos to show who's organizing.
-					</p>
-					<div className="mt-6 flex gap-2">
-						<button
-							onClick={() => setView("calendar")}
-							className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-								view === "calendar" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
-							}`}
-						>
-							Calendar
-						</button>
-						<button
-							onClick={() => setView("list")}
-							className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-								view === "list" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
-							}`}
-						>
-							List
-						</button>
-					</div>
-				</div>
-			</section>
+<PageHeroWithImage
+			label="Events"
+			title="What's Happening"
+			description="Socials, tournaments, and society events. Events are tagged with Society A or Society B logos to show who's organizing."
+			imageSrc="/res/pageheaders/events.JPG"
+			imageAlt="Events"
+		>
+			<div className="mt-6 flex gap-2">
+				<button
+					onClick={() => setView("calendar")}
+					className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+						view === "calendar" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+					}`}
+				>
+					Calendar
+				</button>
+				<button
+					onClick={() => setView("list")}
+					className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+						view === "list" ? "bg-[#832633] text-white" : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+					}`}
+				>
+					List
+				</button>
+			</div>
+		</PageHeroWithImage>
 
 			<div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
 				{data.length === 0 ? (

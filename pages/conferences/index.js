@@ -18,7 +18,7 @@ export default function Conferences() {
                 label="Conferences"
                 title="Student Conferences & Events"
                 description="Find upcoming student conferences, application deadlines, travel support, and how to get involved."
-                /* imageSrc="/res/conferences-hero.jpg" */
+                imageSrc="/res/pageheaders/conferences.JPG"
             />
             <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
                 <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">

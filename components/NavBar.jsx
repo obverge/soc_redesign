@@ -9,6 +9,7 @@ const navItems = [
 	{ href: "/aboutus", label: "About", match: "/aboutus" },
 	{ href: "/academics", label: "Academics", match: "/academics" },
 	{ href: "/events", label: "Events", match: "/events" },
+	{ href: "/sports", label: "Sports", match: "/sports" },
 	{ href: "/getinvolved", label: "Get Involved", match: "/getinvolved" },
 	{ href: "/roar", label: "ROAR", match: "/roar" },
 	{ href: "/conferences", label: "Conferences", match: "/conferences" },
