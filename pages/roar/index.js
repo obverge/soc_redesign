@@ -27,6 +27,16 @@ export default function Roar() {
 				/* imageSrc="/res/roar-hero.jpg" */
 			/>
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+				<div className="mb-8 flex flex-wrap gap-4">
+					<a
+						href="https://forms.gle/D6mTBDNb9SEGybrG9"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
+					>
+						Submit to ROAR
+					</a>
+				</div>
 				<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{normalizedPosts.map((post) => (
 						<BlogPostCard key={post.slug} {...post} onOpen={() => setActivePost(post)} />

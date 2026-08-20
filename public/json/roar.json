@@ -1,7 +1,7 @@
 [
   {
-    "slug": "welcome-to-roar-issue-1",
-    "title": "Welcome to MUN Engineering ROAR",
+    "slug": "issue-1-welcome-to-roar",
+    "title": "Issue 1: Welcome to MUN Engineering ROAR",
     "excerpt": "Introducing the first issue of MUN Engineering ROAR, a student newsletter designed to keep the engineering community informed and engaged.",
     "date": "March 2026",
     "author": "The Engineering Society",
@@ -15,8 +15,8 @@
     ]
   },
   {
-    "slug": "faculty-updates-march-2026",
-    "title": "Faculty Updates",
+    "slug": "issue-1-faculty-updates",
+    "title": "Issue 1: Faculty Updates",
     "excerpt": "Icebergs, quantum research, memorable classroom moments, and appreciation for the people behind the first issue.",
     "date": "March 2026",
     "author": "Faculty of Engineering & Applied Science",
@@ -30,8 +30,8 @@
     ]
   },
   {
-    "slug": "student-design-team-updates",
-    "title": "Student Team Highlights",
+    "slug": "issue-1-student-team-highlights",
+    "title": "Issue 1: Student Team Highlights",
     "excerpt": "Engineering design teams continue earning recognition through competitions and innovative projects.",
     "date": "March 2026",
     "author": "The Engineering Society",
@@ -45,8 +45,8 @@
     ]
   },
   {
-    "slug": "engineering-humour-and-inspiration",
-    "title": "Engineering Inspiration",
+    "slug": "issue-1-engineering-inspiration",
+    "title": "Issue 1: Engineering Inspiration",
     "excerpt": "A blend of engineering humour and timeless scientific wisdom from the first issue of ROAR.",
     "date": "March 2026",
     "author": "The Engineering Society",

@@ -44,7 +44,7 @@ export default function SponsorShowcase({ sponsors }) {
             </div>
             {sponsors.length === 0 ? (
                 <div className="mt-6 rounded-3xl bg-white p-8 text-center text-sm text-slate-600 ring-1 ring-slate-200">
-                    No sponsor logos have been added yet. Add logo files to <code>public/res/sponsor_logos</code> and rebuild the site.
+                    Sponsorship opportunities are available, and sponsor logos will be added here once partner approvals and artwork are finalized.
                 </div>
             ) : (
                 <div className="mt-6 overflow-x-auto" ref={carouselRef}>

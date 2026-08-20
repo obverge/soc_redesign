@@ -26,13 +26,17 @@ export default function Contact() {
 			<PageHeroWithImage
 				label="Contact"
 				title="Email the right team instantly"
-				description="Pick who you want to contact and open your email app with a ready-to-send message."
+				description="Use the form below to send a message to the correct society or team, or use the quick email option for your purpose."
 				imageSrc="/res/pageheaders/contact.jpg"
 				imageAlt="Contact our team"
 			/>
 
 			<section className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
 				<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+					<div className="mb-8 max-w-2xl">
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Get in touch</p>
+						<h2 className="mt-3 text-2xl font-semibold text-slate-950">We’re here to help students, sponsors, and partners.</h2>
+					</div>
 					<form className="space-y-8">
 						<div className="grid gap-6 sm:grid-cols-2">
 							<div>
@@ -113,16 +117,16 @@ export default function Contact() {
 							/>
 						</div>
 
-<div className="grid gap-4 sm:grid-cols-2 items-center">
-						<a
-							href={mailtoLink()}
-							className="inline-flex w-full items-center justify-center rounded-full bg-[#832633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
+						<div className="flex items-center justify-start">
+							<a
+								href={mailtoLink()}
+								className="inline-flex items-center justify-center rounded-full bg-[#832633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]"
 							>
 								Open email client
 							</a>
 						</div>
 
-						<p className="mt-6 text-sm text-slate-500">
+						<p className="text-sm text-slate-500">
 							After clicking, your default email app will open with the selected recipient, subject, and message.
 						</p>
 					</form>
