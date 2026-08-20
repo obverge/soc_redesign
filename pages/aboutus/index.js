@@ -18,7 +18,7 @@ export default function AboutUs() {
 				label="About Us"
 				title="Two Societies, One Community"
 				description="The Memorial University Engineering Society represents all undergraduate engineering students through Society A and Society B — two parallel student governments working together for you."
-				/* imageSrc="/res/aboutus-hero.jpg" */
+				imageSrc="/res/pageheaders/about-us.png"
 			/>
 
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
