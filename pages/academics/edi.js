@@ -12,7 +12,7 @@ export default function EDI() {
 				label="Academics"
 				title="Equity, Diversity & Inclusion"
 				description="Resources and community for international students and inclusive engineering at MUN."
-				/* imageSrc="/res/edi-hero.jpg" */
+				imageSrc="/res/pageheaders/academics.jpg"
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-3xl px-5 py-12 sm:px-8">

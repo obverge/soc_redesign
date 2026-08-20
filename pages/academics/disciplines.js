@@ -23,7 +23,7 @@ export default function Disciplines() {
 				label="Academics"
 				title="Engineering Disciplines"
 				description="Memorial offers eight engineering programs. Explore each discipline to learn about courses, careers, and faculty resources."
-				/* imageSrc="/res/disciplines-hero.jpg" */
+				imageSrc="/res/pageheaders/academics.jpg"
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">

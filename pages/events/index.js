@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { useState } from "react";
 import Head from "next/head";
 import jsonData from "public/json/events.json";
@@ -23,10 +25,20 @@ const organizerLogos = {
 	engsocb: "/res/logos/society-b.png",
 };
 
-export default function Events() {
+export default function Events({ eventGalleryImages = [] }) {
 	const [view, setView] = useState("calendar");
 	const [selectedEvent, setSelectedEvent] = useState(null);
 	const [selectedLogo, setSelectedLogo] = useState(null);
+
+	const isEventUpcoming = (event) => {
+		if (!event.endDate && !event.startDate) return false;
+		const eventDate = new Date(event.endDate || event.startDate + "T23:59:59");
+		const today = new Date();
+		today.setHours(0, 0, 0, 0);
+		return eventDate >= today;
+	};
+
+	const upcomingEvents = data.filter(isEventUpcoming);
 
 	const openEvent = (event, logo) => {
 		setSelectedEvent(event);
@@ -79,12 +91,17 @@ export default function Events() {
 					</div>
 				) : view === "calendar" ? (
 					<div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-						<EventCalendar events={data} organizerLogos={organizerLogos} onEventClick={openEvent} selectedEvent={selectedEvent} />
+						<EventCalendar events={data} organizerLogos={organizerLogos} onEventClick={openEvent} selectedEvent={selectedEvent} defaultDate={new Date()} />
 						<EventDetailSidebar event={selectedEvent} organizerLogo={selectedLogo} />
 					</div>
-				) : (
-					<div className="grid gap-4">
-						{data.map((event, i) => (
+			) : upcomingEvents.length === 0 ? (
+				<div className="rounded-2xl border border-slate-200 bg-white p-12 text-center shadow-sm">
+					<p className="text-lg font-semibold text-slate-950">No upcoming events</p>
+					<p className="mt-2 text-slate-600">Check back soon for future events.</p>
+				</div>
+			) : (
+				<div className="grid gap-4">
+					{upcomingEvents.map((event, i) => (
 							<button
 								key={i}
 								onClick={() => openEvent(event, organizerLogos[event.organizer])}
@@ -106,7 +123,32 @@ export default function Events() {
 				)}
 			</div>
 
-			<EventDetailModal event={view === "list" ? selectedEvent : null} organizerLogo={selectedLogo} onClose={closeModal} />
+			<section className="border-t border-slate-200 bg-slate-50">
+				<div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+					<div className="mb-8">
+						<h2 className="text-2xl font-semibold text-slate-950">Moments from past events</h2>
+						<p className="mt-2 text-slate-600">A look at the community, competition, and celebration that define MUN engineering.</p>
+					</div>
+
+					{eventGalleryImages.length > 0 ? (
+						<div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+							{eventGalleryImages.map((image) => (
+								<div key={image} className="rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+									<img
+										src={image}
+										alt="Event moment"
+										className="h-48 w-full object-cover hover:scale-105 transition-transform"
+									/>
+								</div>
+							))}
+						</div>
+					) : (
+						<div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+							<p className="text-sm text-slate-600">No event photos available yet. Check back soon!</p>
+						</div>
+					)}
+				</div>
+			</section>
 		</>
 	);
 }
@@ -175,4 +217,26 @@ function EventDetailSidebar({ event, organizerLogo }) {
 			</div>
 		</div>
 	);
+}
+
+export async function getStaticProps() {
+	const eventsImagePath = path.join(process.cwd(), "public", "res", "events");
+	let eventGalleryImages = [];
+
+	try {
+		const files = fs.readdirSync(eventsImagePath);
+		eventGalleryImages = files
+			.filter((file) => /\.(png|jpe?g|webp|gif)$/i.test(file))
+			.sort()
+			.map((file) => `/res/events/${file}`);
+	} catch (error) {
+		eventGalleryImages = [];
+	}
+
+	return {
+		props: {
+			eventGalleryImages,
+		},
+		revalidate: 3600,
+	};
 }

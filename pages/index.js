@@ -18,10 +18,10 @@ export default function Home() {
 				<div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
 					<p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Memorial University</p>
 					<h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-						Your Engineering Community
+						Engineers who support each other
 					</h1>
 					<p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-						Representing, advocating, and creating resources for all engineering students at Memorial University.
+						We’re a tight-knit engineering community on the east coast. From first year through graduation, the society builds friendships, creates opportunities, and makes sure no one navigates engineering alone. That’s who we are.
 					</p>
 					<div className="mt-8 flex flex-wrap gap-3">
 						<Link href="/events" className="rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">

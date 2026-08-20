@@ -27,8 +27,8 @@ function isInRange(date, start, end) {
 	return d >= s && d <= e;
 }
 
-export default function EventCalendar({ events, organizerLogos, onEventClick }) {
-	const [viewDate, setViewDate] = useState(() => new Date(2026, 5, 1));
+export default function EventCalendar({ events, organizerLogos, onEventClick, defaultDate }) {
+	const [viewDate, setViewDate] = useState(() => defaultDate || new Date(2026, 5, 1));
 
 	const parsedEvents = useMemo(
 		() => events.map((event, index) => ({ ...event, index, dates: parseEventDates(event) })).filter((e) => e.dates),

@@ -60,6 +60,7 @@ export default function Support() {
 				label="Academics"
 				title="Engineering One & Academic Support"
 				description="Campus resources to help you succeed — from the Success Centre to counselling and scholarships."
+				imageSrc="/res/pageheaders/academics.jpg"
 			/>
 			<AcademicsNav />
 			<section className="mx-auto max-w-3xl px-5 py-12 sm:px-8">

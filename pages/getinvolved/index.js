@@ -8,9 +8,9 @@ import Head from "next/head";
 const data = jsonData;
 
 const tabs = [
-	{ id: 1, label: "Design Teams", mobileIcon: "emoji_events" },
-	{ id: 2, label: "Organizations", mobileIcon: "diversity_3" },
-	{ id: 3, label: "Volunteer", mobileIcon: "volunteer_activism" },
+	{ id: 1, label: "Design Teams" },
+	{ id: 2, label: "Organizations" },
+	{ id: 3, label: "Volunteer" },
 ];
 
 export default function GetInvolved() {
@@ -71,8 +71,7 @@ function Navigation() {
 								currentTab === tab.id ? "bg-[#832633] text-white shadow-sm" : "text-slate-700 hover:bg-slate-100"
 							}`}
 						>
-							<span className="hidden sm:inline">{tab.label}</span>
-							<span className="material-icons sm:hidden">{tab.mobileIcon}</span>
+							{tab.label}
 						</button>
 					))}
 				</div>

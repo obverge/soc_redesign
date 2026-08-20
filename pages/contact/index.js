@@ -27,7 +27,7 @@ export default function Contact() {
 				label="Contact"
 				title="Email the right team instantly"
 				description="Use the form below to send a message to the correct society or team, or use the quick email option for your purpose."
-				imageSrc="/res/pageheaders/contact.jpg"
+			imageSrc="/res/backgrounds/cubes.png"
 				imageAlt="Contact our team"
 			/>
 

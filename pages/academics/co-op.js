@@ -8,7 +8,7 @@ export default function CoOp() {
 			<Head>
 				<title>MUN Eng Society | Co-op</title>
 			</Head>
-			<PageHeroWithImage label="Academics" title="Co-op" description="Get the most out of your co-op experience at Memorial." /* imageSrc="/res/coop-hero.jpg" */ />
+			<PageHeroWithImage label="Academics" title="Co-op" description="Get the most out of your co-op experience at Memorial." imageSrc="/res/pageheaders/academics.jpg" />
 			<AcademicsNav />
 			<article className="prose-section mx-auto max-w-3xl px-5 py-12 sm:px-8">
 				<p>
