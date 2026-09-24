@@ -9,9 +9,9 @@ export default function PageHeroWithImage({
 	const hasImage = Boolean(imageSrc);
 
 	return (
-		<section className="relative border-b border-slate-200 overflow-hidden bg-white">
+		<section className="relative overflow-hidden border-b border-slate-200 bg-white">
 			{hasImage && (
-				<div className="hidden lg:block absolute inset-y-0 right-0 w-[36vw] min-w-[320px]">
+				<div className="absolute inset-0 h-[360px] lg:inset-y-0 lg:right-0 lg:left-auto lg:h-auto lg:w-[54vw] lg:min-w-[560px]">
 					<img
 						src={imageSrc}
 						alt={imageAlt}
@@ -20,16 +20,16 @@ export default function PageHeroWithImage({
 					<div
 						className="absolute inset-0"
 						style={{
-							backgroundImage:
-								"linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.1) 65%, transparent 100%)",
+							backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.72) 100%)",
 						}}
 					/>
+					<div className="absolute inset-0 hidden lg:block" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 18%, rgba(255,255,255,0.35) 58%, transparent 100%)" }} />
 				</div>
 			)}
 
 			<div className="mx-auto w-full max-w-7xl">
-				<div className={`relative flex flex-col ${hasImage ? "min-h-[420px] lg:min-h-[520px]" : "min-h-[320px]"}`}>
-					<div className={`relative z-10 w-full px-5 py-12 sm:px-8 lg:py-20 ${hasImage ? "lg:pr-[48vw]" : ""} flex flex-col justify-center`}>
+				<div className={`relative flex flex-col ${hasImage ? "min-h-[520px] pt-[250px] lg:min-h-[520px] lg:pt-0" : "min-h-[320px]"}`}>
+					<div className={`relative z-10 w-full px-5 py-12 sm:px-8 lg:py-20 ${hasImage ? "lg:pr-[50vw]" : ""} flex flex-col justify-center`}>
 						<div className="lg:max-w-2xl">
 							{label ? (
 								<p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">{label}</p>

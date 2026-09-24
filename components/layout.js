@@ -3,7 +3,7 @@ import { Footer } from "./Footer";
 
 export default function Layout({ children }) {
 	return (
-		<div className="modern-ui flex min-h-screen flex-col bg-slate-50 text-slate-900">
+		<div className="modern-ui flex min-h-screen flex-col bg-[#914653] text-white">
 			<link rel="icon" href="/eng_soc.ico" />
 			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />

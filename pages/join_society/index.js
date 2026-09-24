@@ -71,7 +71,7 @@ export default function JoinSociety() {
 				</div>
 			</section>
 
-			<section className="border-t border-slate-200 bg-slate-50">
+				<section className="border-t border-[#b86d79] bg-[#914653] text-white">
 				<div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
 					<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
 						<div className="max-w-3xl">

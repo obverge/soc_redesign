@@ -22,7 +22,7 @@ export default function Conferences() {
                 description="Find upcoming student conferences, application deadlines, travel support, and how to get involved."
                 imageSrc="/res/pageheaders/conferences.JPG"
             />
-            <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+            <section className="mx-auto max-w-7xl px-5 py-12 text-white sm:px-8">
                 <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
                     <div className="grid gap-6 lg:grid-cols-2">
                         <div>
@@ -32,11 +32,11 @@ export default function Conferences() {
                             </p>
                         </div>
                         <div className="space-y-6">
-                            <div className="rounded-3xl bg-slate-50 p-6">
+                            <div className="rounded-3xl border border-slate-200 bg-white p-6">
                                 <h3 className="font-semibold text-slate-950">Apply with confidence</h3>
                                 <p className="mt-3 text-slate-600">Learn how to find open conference calls for papers, posters, and design competitions with step-by-step guidance.</p>
                             </div>
-                            <div className="rounded-3xl bg-slate-50 p-6">
+                            <div className="rounded-3xl border border-slate-200 bg-white p-6">
                                 <h3 className="font-semibold text-slate-950">Travel & funding</h3>
                                 <p className="mt-3 text-slate-600">See how the society supports conference travel, lodging, and registration for student presenters and team members.</p>
                             </div>
@@ -58,12 +58,12 @@ export default function Conferences() {
                 </div>
             </section>
 
-            <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8">
+            <section className="mx-auto max-w-7xl px-5 pb-16 text-white sm:px-8">
                 {stories.length === 0 ? (
                     <div className="space-y-6">
                         <div className="mb-8">
-                            <h2 className="text-2xl font-semibold text-slate-950">Past conferences & what we learned</h2>
-                            <p className="mt-3 max-w-2xl text-slate-600">
+                            <h2 className="text-2xl font-semibold text-white">Past conferences & what we learned</h2>
+                            <p className="mt-3 max-w-2xl text-white/75">
                                 Browse recent conference experiences, key sessions attended, and the lessons our students brought back to campus.
                             </p>
                         </div>
@@ -77,7 +77,7 @@ export default function Conferences() {
 
                         <div className="grid gap-6 md:grid-cols-3">
                             {categories.map((category) => (
-                                <div key={category} className="rounded-[28px] border border-dashed border-slate-300 bg-slate-50 p-6 text-center shadow-sm">
+                                <div key={category} className="rounded-[28px] border border-slate-200 bg-white p-6 text-center shadow-sm">
                                     <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#832633]/10 text-xl font-bold text-[#832633]">
                                         {category.charAt(0)}
                                     </div>
@@ -90,8 +90,8 @@ export default function Conferences() {
                 ) : (
                     <>
                         <div className="mb-8">
-                            <h2 className="text-2xl font-semibold text-slate-950">Past conferences & what we learned</h2>
-                            <p className="mt-3 max-w-2xl text-slate-600">
+                            <h2 className="text-2xl font-semibold text-white">Past conferences & what we learned</h2>
+                            <p className="mt-3 max-w-2xl text-white/75">
                                 Browse recent conference experiences, key sessions attended, and the lessons our students brought back to campus.
                             </p>
                         </div>

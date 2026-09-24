@@ -123,11 +123,11 @@ export default function Events({ eventGalleryImages = [] }) {
 				)}
 			</div>
 
-			<section className="border-t border-slate-200 bg-slate-50">
+			<section className="border-t border-[#b86d79] bg-[#914653] text-white">
 				<div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
 					<div className="mb-8">
-						<h2 className="text-2xl font-semibold text-slate-950">Moments from past events</h2>
-						<p className="mt-2 text-slate-600">A look at the community, competition, and celebration that define MUN engineering.</p>
+						<h2 className="text-2xl font-semibold text-white">Moments from past events</h2>
+						<p className="mt-2 text-white/75">A look at the community, competition, and celebration that define MUN engineering.</p>
 					</div>
 
 					{eventGalleryImages.length > 0 ? (

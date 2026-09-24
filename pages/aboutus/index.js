@@ -48,7 +48,7 @@ export default function AboutUs() {
 				</div>
 			</section>
 
-			<section className="border-t border-slate-200 bg-slate-50">
+						<section className="border-t border-[#b86d79] bg-[#914653] text-white">
 				<div className="mx-auto max-w-7xl px-5 py-8 sm:px-8">
 					<div className="grid gap-3 sm:grid-cols-4 items-center justify-center">
 						<a href="/res/documents/Engineering Society Constitution.pdf" target="_blank" rel="noreferrer" className="rounded-full bg-[#832633] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#6a2024] text-center">
@@ -76,7 +76,7 @@ export default function AboutUs() {
 					</div>
 				</section>
 
-				<section className="border-t border-slate-200 bg-slate-50 py-12">
+							<section className="border-t border-[#b86d79] bg-[#914653] py-12 text-white">
 					<div className="mx-auto max-w-7xl px-5 sm:px-8">
 						<ShowPastSociety />
 					</div>

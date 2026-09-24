@@ -27,11 +27,11 @@ export default function Sponsorship({ sponsorLogos }) {
                             </p>
                         </div>
                         <div className="space-y-6">
-                            <div className="rounded-3xl bg-slate-50 p-6">
+                            <div className="rounded-3xl border border-slate-200 bg-white p-6">
                                 <h3 className="font-semibold text-slate-950">Event sponsorship</h3>
                                 <p className="mt-3 text-slate-600">Support society events, student-led competitions, and community outreach through financial or resource sponsorship.</p>
                             </div>
-                            <div className="rounded-3xl bg-slate-50 p-6">
+                            <div className="rounded-3xl border border-slate-200 bg-white p-6">
                                 <h3 className="font-semibold text-slate-950">Student development</h3>
                                 <p className="mt-3 text-slate-600">Help students gain real-world experience with project funding, industry mentorship, and academic partnership opportunities.</p>
                             </div>

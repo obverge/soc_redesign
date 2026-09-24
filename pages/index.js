@@ -101,17 +101,17 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+			<section className="mx-auto max-w-7xl px-5 py-16 text-white sm:px-8">
 				<div className="mb-8">
-					<h2 className="text-2xl font-semibold text-slate-950">Disciplines</h2>
-					<p className="mt-2 text-slate-600">Explore programs across Memorial's Faculty of Engineering.</p>
+					<h2 className="text-2xl font-semibold text-white">Disciplines</h2>
+					<p className="mt-2 text-white/75">Explore programs across Memorial's Faculty of Engineering.</p>
 				</div>
 				<Disciplines />
 			</section>
 
-			<section className="border-t border-slate-200 bg-slate-50">
+			<section className="border-t border-[#b86d79] bg-[#914653] text-white">
 				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-					<h2 className="mb-8 text-2xl font-semibold text-slate-950">Explore</h2>
+					<h2 className="mb-8 text-2xl font-semibold text-white">Explore</h2>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 						<QuickLinkCard href="/academics" title="Academics" description="Co-op guides, discipline overviews, capstone projects, and campus resources." icon="school" imageSrc="/res/pageheaders/academics.jpg" />
 					<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" imageSrc="/res/pageheaders/events.JPG" />
@@ -152,13 +152,13 @@ export default function Home() {
 			</section>
 
 			{upcomingEvents.length > 0 ? (
-				<section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+				<section className="mx-auto max-w-7xl px-5 py-16 text-white sm:px-8">
 					<div className="mb-8 flex items-end justify-between">
 						<div>
-							<h2 className="text-2xl font-semibold text-slate-950">Upcoming Events</h2>
-							<p className="mt-2 text-slate-600">Don't miss what's happening this month.</p>
+							<h2 className="text-2xl font-semibold text-white">Upcoming Events</h2>
+							<p className="mt-2 text-white/75">Don't miss what's happening this month.</p>
 						</div>
-						<Link href="/events" className="hidden text-sm font-semibold text-[#832633] hover:underline sm:block">
+						<Link href="/events" className="hidden text-sm font-semibold text-[#f3d8dc] hover:text-white hover:underline sm:block">
 							View all →
 						</Link>
 					</div>

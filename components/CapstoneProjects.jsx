@@ -15,13 +15,13 @@ export function CapstoneProjects({ data }) {
 	};
 
 	return (
-		<div className="p-6">
-			<h3 className="mb-2 text-2xl font-bold text-black">Capstone Projects</h3>
-			<p className="mb-6 text-black">Explore final year engineering capstone projects from Memorial University students.</p>
+		<div className="p-6 text-white">
+			<h3 className="mb-2 text-2xl font-bold text-white">Capstone Projects</h3>
+			<p className="mb-6 text-white">Explore final year engineering capstone projects from Memorial University students.</p>
 
 			{data.classes.length > 1 && (
 				<div className="mb-4">
-					<p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-2 font-maven">Class Year</p>
+					<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#f3d8dc] font-maven">Class Year</p>
 					<div className="flex flex-wrap gap-2">
 						{data.classes.map((cls, i) => (
 							<button key={i} onClick={() => handleClassChange(i)}
@@ -35,12 +35,12 @@ export function CapstoneProjects({ data }) {
 
 			{data.classes.length === 1 && (
 				<>
-					<p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-1 font-maven">Class Year</p>
-					<p className="font-norwester text-xl text-black mb-4">{currentClass.year}</p>
+					<p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#f3d8dc] font-maven">Class Year</p>
+					<p className="mb-4 font-norwester text-xl text-white">{currentClass.year}</p>
 				</>
 			)}
 
-			<p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-2 font-maven">Discipline</p>
+			<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#f3d8dc] font-maven">Discipline</p>
 			<div className="flex flex-wrap gap-2 mb-6">
 				{currentClass.disciplines.map((disc, i) => (
 					<button key={i} onClick={() => setDiscIdx(i)}
@@ -50,7 +50,7 @@ export function CapstoneProjects({ data }) {
 				))}
 			</div>
 
-			<p className="text-sm text-stone-500 mb-4 font-maven">{projects.length} project{projects.length !== 1 ? "s" : ""}</p>
+			<p className="mb-4 text-sm text-[#f3d8dc] font-maven">{projects.length} project{projects.length !== 1 ? "s" : ""}</p>
 
 			<div className="grid gap-6 pb-10 w-full md:grid-cols-2">
 				{projects.map((project, i) => (

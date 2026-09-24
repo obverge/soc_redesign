@@ -4,7 +4,7 @@ import Parallax from "/components/Parallax";
 
 export default function RoleDescriptions() {
     return (
-        <main className="bg-slate-50 text-slate-900">
+        <main className="bg-[#914653] text-white">
             <Head>
                 <title>MUN Eng Society | Role Descriptions</title>
             </Head>

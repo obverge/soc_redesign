@@ -77,7 +77,7 @@ function Navigation() {
 				</div>
 			</nav>
 
-			<div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+			<div className="mx-auto max-w-7xl px-5 py-10 text-white sm:px-8">
 				<div className="mb-10">
 					<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
 						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Student involvement</p>
@@ -87,7 +87,7 @@ function Navigation() {
 				</div>
 				{currentTab === 1 ? (
 					<div>
-						<h2 className="mb-6 text-xl font-semibold text-slate-950">Competitive Design Teams</h2>
+						<h2 className="mb-6 text-xl font-semibold text-white">Competitive Design Teams</h2>
 						<Groups type={data.current_competitive} />
 						<div className="mt-8 flex flex-col items-center gap-4">
 							<button
@@ -98,7 +98,7 @@ function Navigation() {
 							</button>
 							{showPastTeams ? (
 								<div className="w-full">
-									<h3 className="mb-4 text-center text-lg font-semibold text-slate-700">Past Teams</h3>
+									<h3 className="mb-4 text-center text-lg font-semibold text-white">Past Teams</h3>
 									<Groups type={data.past_competitive} />
 								</div>
 							) : null}
@@ -108,14 +108,14 @@ function Navigation() {
 
 				{currentTab === 2 ? (
 					<div>
-						<h2 className="mb-6 text-xl font-semibold text-slate-950">Student Organizations</h2>
+						<h2 className="mb-6 text-xl font-semibold text-white">Student Organizations</h2>
 						<Groups type={data.organization} />
 					</div>
 				) : null}
 
 				{currentTab === 3 ? (
 					<div className="mx-auto max-w-2xl">
-						<h2 className="mb-4 text-xl font-semibold text-slate-950">Volunteer Opportunities</h2>
+						<h2 className="mb-4 text-xl font-semibold text-white">Volunteer Opportunities</h2>
 						<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 							<h3 className="text-lg font-semibold text-slate-950">Student Volunteer Bureau</h3>
 							<p className="mt-3 leading-7 text-slate-600">

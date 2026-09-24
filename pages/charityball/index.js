@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <main className="bg-slate-50 text-slate-900 min-h-screen">
+        <main className="bg-[#914653] text-white min-h-screen">
             <Head>
                 <title>MUN Eng Society | Charity Ball</title>
             </Head>
