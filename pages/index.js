@@ -14,22 +14,69 @@ export default function Home() {
 				<title>MUN Engineering Society</title>
 			</Head>
 
-			<section className="border-b border-slate-200 bg-white">
-				<div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-					<p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">Memorial University</p>
-					<h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-						Engineers who support each other
-					</h1>
-					<p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-						We’re a tight-knit engineering community on the east coast. From first year through graduation, the society builds friendships, creates opportunities, and makes sure no one navigates engineering alone. That’s who we are.
-					</p>
-					<div className="mt-8 flex flex-wrap gap-3">
-						<Link href="/events" className="rounded-full bg-[#832633] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6a2024]">
-							View Events
-						</Link>
-						<Link href="/aboutus" className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
-							Meet the Team
-						</Link>
+			<section className="relative isolate min-h-[620px] overflow-hidden bg-[#281d1b] sm:min-h-[680px]">
+				<Image
+					src="/res/location/engineering_building.jpeg"
+					alt="The S.J. Carew Building at Memorial University"
+					fill
+					priority
+					className="object-cover object-center"
+				/>
+				<div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(25,16,15,0.9)_0%,rgba(25,16,15,0.7)_38%,rgba(25,16,15,0.18)_78%,rgba(25,16,15,0.05)_100%)]" />
+				<div className="relative mx-auto flex min-h-[620px] max-w-7xl items-end px-5 pb-14 sm:min-h-[680px] sm:px-8 sm:pb-20">
+					<div className="max-w-2xl text-white">
+						<div className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#d6aeb1]">
+							<span className="h-px w-10 bg-[#d6aeb1]" />
+							Memorial University
+						</div>
+						<h1 className="max-w-xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">Your engineering community.</h1>
+						<p className="mt-6 max-w-xl text-lg leading-8 text-white/85 sm:text-xl">
+							Built in the Carew Building, carried by students, and made warmer by the people who show up for one another.
+						</p>
+						<div className="mt-8 flex flex-wrap gap-3">
+							<Link href="/events" className="rounded-full bg-[#6f2934] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#6f2934]">
+								See what’s happening
+							</Link>
+							<Link href="/aboutus" className="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
+								Meet the society
+							</Link>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="border-b border-[#d7aaa4] bg-[#f8e8e5]">
+				<div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[1fr_2fr] md:items-center">
+					<div>
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">More than a degree</p>
+						<h2 className="mt-2 text-2xl font-semibold text-[#4a1d24] sm:text-3xl">The people make the place.</h2>
+					</div>
+					<div>
+						<p className="max-w-3xl text-base leading-7 text-[#6b4a4e]">
+							From hallway hellos and late-night project work to Charity Ball, sports, conferences, and the traditions in between, the Engineering Society is where Memorial engineers find their people.
+						</p>
+						<div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-5 sm:gap-4">
+							<div>
+								<p className="text-2xl font-semibold text-[#832633]">1200+</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Students</p>
+							</div>
+							<div>
+								<p className="text-2xl font-semibold text-[#832633]">20+</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Groups</p>
+							</div>
+							<div>
+								<p className="text-2xl font-semibold text-[#832633]">7</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Disciplines</p>
+							</div>
+							<div>
+								<p className="text-2xl font-semibold text-[#832633]">2</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Societies</p>
+							</div>
+							<div>
+								<p className="text-2xl font-semibold text-[#832633]">1</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Community</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -66,12 +113,12 @@ export default function Home() {
 				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
 					<h2 className="mb-8 text-2xl font-semibold text-slate-950">Explore</h2>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-						<QuickLinkCard href="/academics" title="Academics" description="Co-op guides, discipline overviews, capstone projects, and campus resources." icon="school" />
-					<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" />
-					<QuickLinkCard href="/sports" title="Sports" description="See championship winners, rivalry history, and team highlights from past seasons." icon="sports_soccer" />
-					<QuickLinkCard href="/getinvolved" title="Get Involved" description="Design teams, student organizations, and volunteer opportunities." icon="groups" />
-						<QuickLinkCard href="/conferences" title="Conferences" description="Find student conferences, application deadlines, and travel resources." icon="public" />
-						<QuickLinkCard href="/sponsorship" title="Sponsorship" description="Partner with the society for Charity Ball, orientation, and student events." icon="volunteer_activism" />
+						<QuickLinkCard href="/academics" title="Academics" description="Co-op guides, discipline overviews, capstone projects, and campus resources." icon="school" imageSrc="/res/pageheaders/academics.jpg" />
+					<QuickLinkCard href="/events" title="Events" description="Socials, tournaments, and society events — see what's coming up." icon="event" imageSrc="/res/pageheaders/events.JPG" />
+					<QuickLinkCard href="/sports" title="Sports" description="See championship winners, rivalry history, and team highlights from past seasons." icon="sports_soccer" imageSrc="/res/pageheaders/sports.jpg" />
+					<QuickLinkCard href="/getinvolved" title="Get Involved" description="Design teams, student organizations, and volunteer opportunities." icon="groups" imageSrc="/res/pageheaders/getinvolved.jpeg" />
+						<QuickLinkCard href="/conferences" title="Conferences" description="Find student conferences, application deadlines, and travel resources." icon="public" imageSrc="/res/pageheaders/conferences.JPG" />
+						<QuickLinkCard href="/sponsorship" title="Sponsorship" description="Partner with the society for Charity Ball, orientation, and student events." icon="volunteer_activism" imageSrc="/res/pageheaders/sponsorship.jpg" />
 						<QuickLinkCard href="/contact" title="Contact" description="Reach society leadership, sponsors, or partners for academic and event support." icon="mail" />
 					</div>
 				</div>

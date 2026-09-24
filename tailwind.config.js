@@ -31,7 +31,10 @@ module.exports = {
         'text-primary': '#e2e8f0',
         'text-secondary': '#94a3b8',
         overlay: 'rgba(15,23,42,0.72)',
-      }
+      },
+      fontFamily: {
+        norwester: ['Norwester', 'sans-serif'],
+      },
     },
   },
   plugins: [],
