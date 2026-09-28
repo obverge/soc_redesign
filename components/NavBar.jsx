@@ -83,7 +83,7 @@ export const Navbar = () => {
 										href={item.href}
 										onClick={handleClickClose}
 										className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold transition ${
-											isActive ? "bg-[#832633] text-white shadow-sm" : "text-slate-700 hover:bg-slate-100"
+											isActive ? "bg-[#641f2e] text-white shadow-sm" : "text-slate-700 hover:bg-slate-100"
 										}`}
 									>
 										{item.label}

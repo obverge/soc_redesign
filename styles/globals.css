@@ -9,14 +9,14 @@
 }
 
 :root {
-  --foreground: #0f172a;
-  --text-muted: #475569;
-  --background: #914653;
+  --foreground: #282529;
+  --text-muted: #646064;
+  --background: #f7f5f0;
   --surface: #ffffff;
-  --surface-soft: #f1f5f9;
-  --border: rgba(15, 23, 42, 0.08);
-  --accent: #832633;
-  --accent-soft: #f3d5b8;
+  --surface-soft: #eeece6;
+  --border: rgba(40, 37, 41, 0.1);
+  --accent: #641f2e;
+  --accent-soft: #d6ad59;
 }
 
 html {
@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--foreground);
-  background: #c25f6f;
+  background: var(--background);
   font-family: 'Inter', system-ui, sans-serif;
   letter-spacing: 0.01em;
   text-rendering: optimizeLegibility;
@@ -42,13 +42,13 @@ h3 {
 }
 
 .repeating-bg {
-  background-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%), radial-gradient(circle at 80% 15%, rgba(234, 171, 0, 0.12), transparent 22%), linear-gradient(180deg, rgba(248, 250, 252, 0.98), rgba(226, 232, 240, 0.98));
+  background-image: linear-gradient(180deg, #f7f5f0, #eeece6);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .modern-ui {
-  background: var(--background);
+  background: #4a1b27;
   color: white;
 }
 

@@ -9,7 +9,7 @@ export default function Home() {
 	const upcomingEvents = eventsData.slice(0, 3);
 
 	return (
-		<>
+		<div className="bg-[#f7f5f0] text-[#282529]">
 			<Head>
 				<title>MUN Engineering Society</title>
 			</Head>
@@ -45,36 +45,36 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="border-b border-[#d7aaa4] bg-[#f8e8e5]">
+			<section className="border-b border-[#dedbd4] bg-[#eeece6]">
 				<div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[1fr_2fr] md:items-center">
 					<div>
-						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#832633]">More than a degree</p>
-						<h2 className="mt-2 text-2xl font-semibold text-[#4a1d24] sm:text-3xl">The people make the place.</h2>
+						<p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#641f2e]">More than a degree</p>
+						<h2 className="mt-2 text-2xl font-semibold text-[#34282a] sm:text-3xl">The people make the place.</h2>
 					</div>
 					<div>
-						<p className="max-w-3xl text-base leading-7 text-[#6b4a4e]">
+						<p className="max-w-3xl text-base leading-7 text-[#646064]">
 							From hallway hellos and late-night project work to Charity Ball, sports, conferences, and the traditions in between, the Engineering Society is where Memorial engineers find their people.
 						</p>
 						<div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-5 sm:gap-4">
 							<div>
-								<p className="text-2xl font-semibold text-[#832633]">1200+</p>
-								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Students</p>
+								<p className="text-2xl font-semibold text-[#641f2e]">1200+</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#646064]">Students</p>
 							</div>
 							<div>
-								<p className="text-2xl font-semibold text-[#832633]">20+</p>
-								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Groups</p>
+								<p className="text-2xl font-semibold text-[#641f2e]">20+</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#646064]">Groups</p>
 							</div>
 							<div>
-								<p className="text-2xl font-semibold text-[#832633]">7</p>
-								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Disciplines</p>
+								<p className="text-2xl font-semibold text-[#641f2e]">7</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#646064]">Disciplines</p>
 							</div>
 							<div>
-								<p className="text-2xl font-semibold text-[#832633]">2</p>
-								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Societies</p>
+								<p className="text-2xl font-semibold text-[#641f2e]">2</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#646064]">Societies</p>
 							</div>
 							<div>
-								<p className="text-2xl font-semibold text-[#832633]">1</p>
-								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b4a4e]">Community</p>
+								<p className="text-2xl font-semibold text-[#641f2e]">1</p>
+								<p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#646064]">Community</p>
 							</div>
 						</div>
 					</div>
@@ -101,15 +101,17 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="mx-auto max-w-7xl px-5 py-16 text-white sm:px-8">
+			<section className="bg-[#e8e6df] px-5 py-16 text-[#282529] sm:px-8">
+				<div className="mx-auto max-w-7xl">
 				<div className="mb-8">
-					<h2 className="text-2xl font-semibold text-white">Disciplines</h2>
-					<p className="mt-2 text-white/75">Explore programs across Memorial's Faculty of Engineering.</p>
+					<h2 className="text-2xl font-semibold text-[#282529]">Disciplines</h2>
+					<p className="mt-2 text-[#646064]">Explore programs across Memorial's Faculty of Engineering.</p>
 				</div>
 				<Disciplines />
+				</div>
 			</section>
 
-			<section className="border-t border-[#b86d79] bg-[#914653] text-white">
+			<section className="border-t border-[#76515a] bg-[#4a1b27] text-white">
 				<div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
 					<h2 className="mb-8 text-2xl font-semibold text-white">Explore</h2>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -152,11 +154,11 @@ export default function Home() {
 			</section>
 
 			{upcomingEvents.length > 0 ? (
-				<section className="mx-auto max-w-7xl px-5 py-16 text-white sm:px-8">
+				<section className="mx-auto max-w-7xl px-5 py-16 text-[#282529] sm:px-8">
 					<div className="mb-8 flex items-end justify-between">
 						<div>
-							<h2 className="text-2xl font-semibold text-white">Upcoming Events</h2>
-							<p className="mt-2 text-white/75">Don't miss what's happening this month.</p>
+							<h2 className="text-2xl font-semibold text-[#282529]">Upcoming Events</h2>
+							<p className="mt-2 text-[#646064]">Don't miss what's happening this month.</p>
 						</div>
 						<Link href="/events" className="hidden text-sm font-semibold text-[#f3d8dc] hover:text-white hover:underline sm:block">
 							View all →
@@ -178,6 +180,6 @@ export default function Home() {
 				</section>
 			) : null}
 
-		</>
+		</div>
 	);
 }
